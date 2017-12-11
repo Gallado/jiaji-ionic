@@ -1,0 +1,95 @@
+.jiaji_discovery{
+  .check_in{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding:30px;
+    border-bottom: 1px solid #d5d5d5;
+    position: relative;
+    background-color: #fff;
+  }
+  .checkInImg{
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+  }
+  .checkInImg img{
+    border-radius: 80px;
+  }
+  .checkIn_info{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px;
+  }
+  .checkIn_info div{
+    padding: 5px 0;
+  }
+  .checkIn_info p{
+
+  }
+
+  .delivery_list{
+    margin-top: 10px;
+
+  }
+  .delivery_list ul li{
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    padding: 0 15px;
+    position: relative;
+    border-bottom: 1px solid #d5d5d5;
+  }
+  .delivery_list ul li:first-child{
+    border-top: 1px solid #d5d5d5;
+  }
+  .delivery_list ul li:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    background-image: url(../img/personCenter/rightArrow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    right: 15px;
+
+  }
+  .delivery_list ul li .itemIcon{
+    width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .delivery_list ul li .item_info{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding-right: 15px;
+  }
+  .delivery_list ul li .item_info p:last-child{
+    color: #666;
+  }
+  .coupon{
+    background-image: url(../img/discovery/coupon.png);
+    width: 20px;
+    height: 20px;
+  }
+  .integral{
+    background-image: url(../img/discovery/integral.png);
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,48 @@
+<ion-view class="jiaji_productDescription">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>增值服务</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <div class="title_info">
+      <p>产品介绍</p>
+    </div>
+    <div class="product_list">
+      <ion-scroll delegate-handle="websiteQueryList" has-bouncing="true" zooming="false" direction="y"
+                  ng-style="{'height':ionScrollHeight}">
+        <ul>
+          <li>
+            <div class="productIcon">
+              <i class="icon offer"></i>
+            </div>
+            <p>代收货款</p>
+          </li>
+          <li>
+            <div class="productIcon">
+              <i class="icon express"></i>
+            </div>
+            <p>保价运输</p>
+          </li>
+          <li>
+            <div class="productIcon">
+              <i class="icon business"></i>
+            </div>
+            <p>安全包装</p>
+          </li>
+          <li>
+            <div class="productIcon">
+              <i class="icon accurate"></i>
+            </div>
+            <p>其他增值服务</p>
+          </li>
+        </ul>
+      </ion-scroll>
+    </div>
+
+
+  </ion-content>
+</ion-view>

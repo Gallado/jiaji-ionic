@@ -1,0 +1,172 @@
+<ion-view class="jiaji_sendGoods">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>我要下单</ion-nav-title>
+      <ion-nav-buttons side="right">
+        <p ng-click="submitOrder()">提交</p>
+      </ion-nav-buttons>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <div class="order_info">
+      <div class="item_title">
+        <p class="titleIcon"></p>
+        <label>发货人信息</label>
+        <div class="info_item" ng-click="goSelectPerson(0)">
+          <p class="rightArrow_item">选择常用发货人地址</p>
+        </div>
+      </div>
+      <div class="item_list">
+        <ul>
+          <li>
+            <label>姓名</label>
+            <div class="info_item">
+              <input placeholder="姓名" ng-model="sendPerson.name">
+              <div class="operateIcon" ng-click="getAllContacts()">
+                <i class="icon contactPerson"></i>
+              </div>
+            </div>
+          </li>
+          <li>
+            <label>手机号</label>
+            <div class="info_item">
+              <input placeholder="手机号码" ng-model="sendPerson.phoneNo">
+              <div class="operateIcon">
+                <i class="icon"></i>
+              </div>
+            </div>
+          </li>
+          <li>
+            <label>城市</label>
+            <div class="info_item">
+              <!--<input placeholder="城市" ng-model="sendPerson.address">-->
+              <ionic-pick-city id="sendCity" class="selectCity-component" options='CityPickData' address='address'></ionic-pick-city>
+              <div class="operateIcon" ng-click="getLocation()">
+                <i class="icon location"></i>
+              </div>
+            </div>
+          </li>
+          <li>
+            <label>详细地址</label>
+            <div class="info_item">
+              <input placeholder="详细地址(如：楼号/门牌号)" ng-model="sendPerson.detailAddress">
+            </div>
+          </li>
+          <li>
+            <label>重量</label>
+            <div class="info_item">
+              <p class="rightArrow_item">20Kg</p>
+            </div>
+          </li>
+          <li>
+            <label>优惠券</label>
+            <div class="info_item">
+              <p class="rightArrow_item">20元无门槛劵</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="order_info">
+      <div class="item_title">
+        <p class="titleIcon"></p>
+        <label>收货人信息</label>
+        <div class="info_item" ng-click="goSelectPerson(1)">
+          <p class="rightArrow_item">选择常用收货人地址</p>
+        </div>
+      </div>
+      <div class="item_list">
+        <ul>
+          <li>
+            <label>姓名</label>
+            <div class="info_item">
+              <input placeholder="姓名" ng-model="getPerson.name">
+              <div class="operateIcon">
+                <i class="icon contactPerson"></i>
+              </div>
+            </div>
+          </li>
+          <li>
+            <label>手机号</label>
+            <div class="info_item">
+              <input placeholder="手机号码" ng-model="getPerson.phoneNo">
+              <div class="operateIcon">
+                <i class="icon"></i>
+              </div>
+            </div>
+          </li>
+          <li>
+            <label>城市</label>
+            <div class="info_item">
+              <ionic-pick-city id="getCity" class="selectCity-component" options='CityPickData' address='address'></ionic-pick-city>
+              <!--<input placeholder="城市" ng-model="getPerson.address">-->
+            </div>
+          </li>
+          <li>
+            <label>详细地址</label>
+            <div class="info_item">
+              <input placeholder="详细地址(如：楼号/门牌号)" ng-model="getPerson.detailAddress">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="order_info">
+      <div class="item_title">
+        <p class="titleIcon"></p>
+        <label>增值服务</label>
+      </div>
+      <div class="item_list">
+        <ul>
+          <li>
+            <label>保价声明</label>
+            <div class="info_item">
+              <input type="number" placeholder="请填写货物真实价值">
+              <div class="operateIcon">
+                <span>元</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <label>代收货款类型</label>
+            <div class="info_item rightArrow_item">
+              <select>
+                <option>即日退</option>
+                <option selected>三日退</option>
+              </select>
+            </div>
+          </li>
+          <li>
+            <label>签收单返还</label>
+            <div class="info_item rightArrow_item">
+              <select>
+                <option>无需返单</option>
+                <option selected>签收单传真返回</option>
+                <option selected>签收单原件返回</option>
+              </select>
+            </div>
+          </li>
+          <li>
+            <label>送货方式</label>
+            <div class="info_item rightArrow_item">
+              <select>
+                <option>自己取货</option>
+                <option selected>送货上楼</option>
+                <option>送货寄存</option>
+              </select>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+  </ion-content>
+</ion-view>

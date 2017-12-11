@@ -1,0 +1,38 @@
+.jiaji_messageCenter{
+  .message_tab{
+    height: 45px;
+    background-color: #fff;
+    border-bottom: 1px solid #d5d5d5;
+
+  }
+  .message_tab ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+
+  }
+  .message_tab ul li{
+    flex: 0.5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+  }
+  .message_tab ul li p{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid transparent;
+
+  }
+  .activeTab{
+    color:#d61e14;
+    border-bottom: 2px solid #d61e14 !important;
+  }
+
+}

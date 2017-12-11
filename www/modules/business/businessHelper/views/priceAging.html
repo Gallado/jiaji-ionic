@@ -1,0 +1,96 @@
+<ion-view class="jiaji_priceAging">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>价格时效查询</ion-nav-title>
+      <ion-nav-buttons side="right">
+        <p ng-click="toOrder()">下单</p>
+      </ion-nav-buttons>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <div class="item_list">
+      <ul>
+        <li>
+          <div class="item_tip">
+            <label>发货城市</label>
+            <i class="icon required"></i>
+          </div>
+          <div class="item_info">
+            <!--<input placeholder="请选择发货城市" disabled>-->
+            <ionic-pick-city class="selectCity-component" options='CityPickData' address='address'></ionic-pick-city>
+            <i class="icon selectCity"></i>
+          </div>
+        </li>
+        <li>
+          <div class="item_tip">
+            <label>发货城市</label>
+            <i class="icon required"></i>
+          </div>
+          <div class="item_info">
+            <ionic-pick-city class="selectCity-component" options='CityPickData' address='address'></ionic-pick-city>
+            <i class="icon selectCity"></i>
+          </div>
+        </li>
+        <li>
+          <div class="item_tip">
+            <label>重量</label>
+          </div>
+          <div class="item_info">
+            <input placeholder="实际重量">
+            <p>Kg</p>
+          </div>
+        </li>
+        <li>
+          <div class="item_tip">
+            <label>体积</label>
+          </div>
+          <div class="item_info">
+            <input placeholder="实际体积">
+            <p>m³</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="more_business" ng-click="showMoreBusiness()">
+      <p>填写更多增值业务</p>
+      <i class="icon" ng-class="{'up':showMoreBusinessList,'down':!showMoreBusinessList}"></i>
+    </div>
+    <div class="business_content" ng-if="showMoreBusinessList">
+      <ul>
+        <li>
+          <label>保价声明</label>
+          <div class="more_info">
+            <input placeholder="保价金额>=100">
+            <p>元</p>
+          </div>
+        </li>
+        <li>
+          <label>代收货款</label>
+          <div class="more_info">
+            <select>
+              <option>即日退</option>
+              <option selected>三日退</option>
+            </select>
+          </div>
+        </li>
+        <li>
+          <label>签单返还</label>
+          <div class="more_info">
+            <select>
+              <option>即日退</option>
+              <option selected>三日退</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="search_btn">
+      <div class="btn_s">查询</div>
+    </div>
+
+  </ion-content>
+</ion-view>

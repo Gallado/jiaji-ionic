@@ -1,0 +1,148 @@
+.jiaji_integral{
+  .integral_list{
+    padding: 0 15px;
+
+  }
+  .integral_list ul li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 70px;
+
+
+  }
+  .integral_list ul li .item_status{
+    width: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    position: relative;
+    height: 100%;
+
+  }
+  .integral_list ul li .item_status:before{
+    position: absolute;
+    content: '';
+    width: 1px;
+    right: 17px;
+    height: 27px;
+    background-color: #313131;
+    top: 50%;
+    margin-top: -35px;
+  }
+  .integral_list ul li .item_status:after{
+    position: absolute;
+    content: '';
+    width: 1px;
+    right: 17px;
+    height: 27px;
+    background-color: #313131;
+    top: 50%;
+    margin-top: 8px;
+  }
+  .integral_list ul li .item_status p{
+    padding-right: 10px;
+  }
+  .item_info{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 45px;
+    padding-left: 20px;
+
+  }
+  .integral_list ul li:first-child .item_status:before{
+     display: none;
+   }
+  .integral_list ul li:first-child .item_status:after{
+    height: 32px;
+  }
+  .integral_list ul li:last-child .item_status:after{
+    display: none;
+  }
+  .integral_list ul li:first-child{
+    height: 80px;
+  }
+  .integral_list ul li:first-child .item_info{
+    height: 60px;
+  }
+  .integral_list ul li:first-child .item_info .integral_info{
+    background-color: #d61e14;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+
+  }
+  .integral_list ul li:first-child .item_info .integral_info:before{
+    border: 8px solid transparent;
+    border-right:8px solid #d61e14;
+    left: -16px;
+    margin-top: -8px;
+  }
+  .integral_list ul li:first-child .item_info .integral_info span{
+    color: #fff;
+    font-weight: bold;
+    font-size: 34px;
+  }
+  .integral_list ul li:first-child .item_info .integral_info >p{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    padding-top: 5px;
+  }
+  .integral_info{
+    padding: 0 15px;
+    border-radius: 4px;
+    position: relative;
+    background-color: #fff;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .integral_info:before{
+    position: absolute;
+    content: '';
+    border: 6px solid transparent;
+    border-right: 6px solid #fff;
+    left: -12px;
+    top: 50%;
+    margin-top: -6px;
+  }
+  .tips{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    font-size: 12px;
+    text-decoration: underline;
+    padding: 5px 0;
+  }
+  .tips p{
+    padding: 0 5px;
+  }
+  .item_info span{
+    color: #d61e14;
+  }
+  .nowStatus{
+    background-image: url("../img/discovery/now_status.png");
+    width: 16px;
+    height: 16px;
+  }
+  .status{
+    background-image: url("../img/discovery/status.png");
+    width: 16px;
+    height: 16px;
+  }
+  .tipIcon{
+    background-image: url("../img/discovery/tipsIcon.png");
+    width: 12px;
+    height: 12px;
+  }
+
+}

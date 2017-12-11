@@ -1,0 +1,65 @@
+<ion-view class="jiaji_personCenter">
+  <ion-content has-bouncing="true" padding="false" class="no-header-content">
+    <div class="person_info" ng-click="goPersonSetting()">
+      <div class="personImg">
+        <img class="img" src="img/personCenter/loginImg.png">
+      </div>
+      <div class="person_name">
+        <p>Gherardo</p>
+        <p>使用官网账号登陆</p>
+      </div>
+    </div>
+    <div class="another_info">
+      <ul>
+        <li ng-click="goIntegral()">
+          <p>203</p>
+          <p>积分</p>
+        </li>
+        <li ng-click="goCoupon()">
+          <p>0</p>
+          <p>优惠券</p>
+        </li>
+      </ul>
+    </div>
+    <div class="person_list">
+      <ul>
+        <li ng-click="goCommonAddress()" class="b-t-n">
+          <div class="itemIcon">
+            <i class="icon send"></i>
+          </div>
+          <div class="item_info">
+            <label>发件人地址簿</label>
+            <p>您的常用发货地址</p>
+          </div>
+        </li>
+        <li>
+          <div class="itemIcon">
+            <i class="icon get"></i>
+          </div>
+          <div class="item_info">
+            <label>收件人地址簿</label>
+            <p>您的常用收件地址</p>
+          </div>
+        </li>
+        <li ng-click="goSendDraftbox()">
+          <div class="itemIcon">
+            <i class="icon draft"></i>
+          </div>
+          <p>发件草稿箱</p>
+        </li>
+        <li ng-click="goMessageCenter()">
+          <div class="itemIcon">
+            <i class="icon message"></i>
+          </div>
+          <p>我的消息</p>
+        </li>
+        <li ng-click="goMyEvaluation()">
+          <div class="itemIcon">
+            <i class="icon evaluation"></i>
+          </div>
+          <p>我的评价</p>
+        </li>
+      </ul>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view class="jiaji_receiptRecord">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>收货记录</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <ion-refresher pulling-text="下拉加载···" refreshing-text='拼命加载中···' pulling-icon="" refreshing-icon="" class="jiaji-refresh-icon" on-refresh="doRefresh()"></ion-refresher>
+    <div class="empty-data" ng-if="receiptRecordList.length === 0">
+      <i class="icon emptyDataIcon"></i>
+      <p>暂无数据</p>
+    </div>
+
+
+  </ion-content>
+</ion-view>

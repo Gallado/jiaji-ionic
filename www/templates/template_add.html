@@ -1,0 +1,79 @@
+<ion-view>
+  <ion-nav-bar class="bar-huatek">
+    <ion-header-bar class="bar-huatek">
+      <ion-nav-back-button>
+        <i class="icon_back goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>办理托运</ion-nav-title>
+      <ion-nav-buttons side="right">
+        <button class="button" ng-click="save()">保存</button>
+      </ion-nav-buttons>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content class="has-header has-footer">
+    <div class="details">摄像头</div>
+    <div class="ui-form-td bg-f b-td">
+      <div class="ui-form-item b-d">
+        <img id="myImage" alt=""/>     
+        <button class="button" ng-click="takephoto()">Use camera</button> 
+      </div>
+    </div>
+    <div class="details">发货人信息</div>
+    <div class="ui-form-td bg-f b-td" id="search_parmas">
+      <div class="ui-form-item b-d">
+        <label>测试自动选中</label>
+        <input type="text" ionic-autocomplete="{items: items, onSelect:onSelect}" placeholder="Search ?" ng-model="search"/>
+      </div>
+      <div class="ui-form-item b-d">
+        <button class="button button-positive" modal-select ng-model="model4" options="selectables" modal-title="Select a character" option-getter="getOpt(option)">
+            Select it
+            <div class="option">
+                {{option.name}} ({{option.role}})
+            </div>
+        </button>
+        <label>测试全屏选择{{model4}}</label>
+      </div>
+      <div class="ui-form-item b-d">
+        <label>姓名</label>
+        <select>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+      </div>
+      <div class="ui-form-item b-d">
+        <label>手机号</label>
+        <input type="text" ng-model="user.phone" placeholder="请输入手机号码">
+      </div>
+      <div class="ui-form-item b-d">
+        <label>固定号码</label>
+        <input type="text" ng-model="user.tel" placeholder="请填写电话">
+      </div>
+      <div class="ui-form-item b-d">
+        <label>公司名称</label>
+        <input type="text" ng-model="user.company" placeholder="请填写公司名称">
+      </div>
+      <div class="ui-form-item b-d">
+        <label>账户名称</label>
+        <input type="text" ng-model="user.name" placeholder="请填写账户名称">
+      </div>
+      <div class="ui-form-item b-d">
+        <label>账号</label>
+        <input type="text" ng-model="user.userNo" placeholder="请填写账号">
+      </div>
+      <div class="ui-form-item b-d">
+        <label>开户银行</label>
+        <input type="text" ng-model="user.userBank"  placeholder="请填写开户银行全称">
+      </div>
+      <div class="ui-form-item b-d">
+        <label>选择省市</label>
+        <input type="button" ng-model="user.local" placeholder="请选择所在的省市" ng-click="goSelectCity()">
+      </div>
+    </div>
+
+  </ion-content>
+  <!-- <ion-footer-bar align-title="left" class="bar-assertive">
+    <button type="button" class="button-b" ng-click="goConsignUser()">提交</button>
+  </ion-footer-bar> -->
+</ion-view>

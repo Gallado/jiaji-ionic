@@ -1,0 +1,68 @@
+<ion-view class="jiaji_websiteQuery">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>网点查询</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+  <div class="search_title">
+    <div class="website_search">
+      <div class="search_bar">
+        <input type="text" ng-model="keyWords" placeholder="请输入营业部名称、电话或地址">
+        <i ng-if="keyWords" class="icon clearIcon" ng-click="clearKeyWords()"></i>
+      </div>
+      <div class="searchIcon" ng-click="searchItem(keyWords)">
+        <i class="icon search"></i>
+      </div>
+    </div>
+  </div>
+
+    <div class="website_list">
+
+      <ion-scroll delegate-handle="websiteQueryList" has-bouncing="true" scroll="false" zooming="false" direction="y" ng-style="{'height':ionScrollHeight}">
+        <ion-refresher pulling-text="下拉加载···" refreshing-text='拼命加载中···' pulling-icon="" refreshing-icon="" class="jiaji-refresh-icon" on-refresh="doRefresh()"></ion-refresher>
+        <ul>
+          <ion-content>
+          <li ng-repeat="data in vm.messages">
+            <div class="website_info">
+              <div class="website_title">
+                <h3>{{data.name}}</h3>
+                <div class="website_distance">
+                  <i class="icon position"></i>
+                  <p>{{data.distance}}</p>
+                </div>
+              </div>
+              <div class="website_item">
+                <i class="icon address"></i>
+                <p>{{data.address}}</p>
+              </div>
+              <div class="website_item">
+                <i class="icon tag"></i>
+                <p>{{data.tag}}</p>
+              </div>
+              <div class="website_item">
+                <i class="icon telephone"></i>
+                <p>{{data.telephone}}</p>
+              </div>
+            </div>
+            <div class="website_operate">
+              <div class="operate_item" ng-click="toTelphone($event,'18392021656')">
+                <i class="icon toOrder"></i>
+                <p>立即下单</p>
+              </div>
+              <div class="operate_item" ng-click="goWebsiteMap(data)">
+                <i class="icon goHere"></i>
+                <p>到这里去</p>
+              </div>
+            </div>
+          </li>
+            <ion-infinite-scroll ng-if="!closeMore" immediate-check="false" on-infinite="upInfinite()" distance="1%"></ion-infinite-scroll>
+            </ion-content>
+        </ul>
+        </ion-scroll>
+    </div>
+  </ion-content>
+</ion-view>

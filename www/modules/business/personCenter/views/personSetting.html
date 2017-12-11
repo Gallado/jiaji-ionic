@@ -1,0 +1,51 @@
+<ion-view class="jiaji_personSetting">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>个人设置</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+
+    <div class="setting_img" ng-click="picture()">
+      <label>头像</label>
+      <div class="show_img">
+        <div class="imgIcon">
+          <img ng-if="imagesList.length>0" class="img" ng-src="{{imagesList}}">
+          <img ng-if="imagesList.length===0" class="img" ng-src="img/personCenter/loginImg.png">
+        </div>
+      </div>
+    </div>
+    <div class="setting_list">
+      <ul>
+        <li>
+          <label>姓名</label>
+          <p>Gherardo</p>
+        </li>
+        <li>
+          <label>性别</label>
+          <p></p>
+        </li>
+        <li>
+          <label>出生日期</label>
+          <p></p>
+        </li>
+        <li>
+          <label>已绑定手机号</label>
+          <p>18392021656</p>
+        </li><li>
+        <label>修改密码</label>
+        <p></p>
+      </li>
+      </ul>
+    </div>
+    <div class="search_btn" ng-click="goLogin()">
+      <div class="btn_unable">退出当前账号</div>
+    </div>
+
+
+
+  </ion-content>
+</ion-view>

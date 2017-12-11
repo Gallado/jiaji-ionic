@@ -1,0 +1,29 @@
+<ion-view class="jiaji_coupon">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>优惠券</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <div class="coupon_tab">
+      <ul>
+        <li ng-click="couponTab(0)">
+          <p ng-class="{'activeTab':couponTabIndex === 0}">未使用</p>
+        </li>
+        <li ng-click="couponTab(1)">
+          <p ng-class="{'activeTab':couponTabIndex === 1}">未使用</p>
+        </li>
+        <li ng-click="couponTab(2)">
+          <p ng-class="{'activeTab':couponTabIndex === 2}">未使用</p>
+        </li>
+      </ul>
+    </div>
+    <div class="coupon_content">
+
+
+    </div>
+  </ion-content>
+</ion-view>

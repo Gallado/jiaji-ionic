@@ -1,0 +1,41 @@
+<ion-view class="jiaji_addNewAddress">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>编辑地址</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <div class="address_info">
+      <ul>
+        <li>
+          <label>姓名</label>
+          <input ng-model="newAddress.name" placeholder="请输入姓名">
+        </li>
+        <li>
+          <label>联系电话</label>
+          <input ng-model="newAddress.phoneNo" placeholder="请输入手机或者固话">
+        </li>
+        <li>
+          <label>所在地区</label>
+          <input type="text" ng-model="newAddress.address" placeholder="请选择省市区" id='city-picker'/>
+        </li>
+        <li>
+          <label>详细地址</label>
+          <div class="location_address">
+            <input placeholder="请输入详细地址" ng-model="newAddress.detailAddress">
+            <div class="locationIcon" ng-click="getCurrentPosition()">
+              <i class="icon location"></i>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="new_address" ng-click="editAddressOk(newAddress)">
+      <div class="btn">确认</div>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,81 @@
+<ion-view class="jiaji_home">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-buttons side="left">
+        <i class="icon scan" ng-click="scanStart()"></i>
+      </ion-nav-buttons>
+      <ion-nav-title>
+        <div class="title-search">
+          <i class="icon search"></i>
+          <input type="number" placeholder="请输入8-10位订单号">
+        </div>
+      </ion-nav-title>
+      <ion-nav-buttons side="right">
+        <i class="icon call" ng-click="toTelphone($event,'18392021656')"></i>
+      </ion-nav-buttons>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <ion-refresher pulling-text="下拉刷新···" refreshing-text='拼命加载中···' pulling-icon="" refreshing-icon="" class="jiaji-refresh-icon" on-refresh="doRefresh()"></ion-refresher>
+    <ion-slide-box class="home_ad" auto-play="true" does-continue="true" slide-interval=2000>
+      <ion-slide>
+        <div class="slider_item">
+          <img class="img" src="img/home/home_ad.png" />
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slider_item">
+          <img class="img" src="img/home/home_ad2.png" />
+        </div>
+      </ion-slide>
+      <ion-slide on-slide-changed="slideHasChanged(index)">
+        <div class="slider_item">
+          <img class="img" src="img/home/home_ad.png" />
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+    <div class="home_menu">
+      <ul>
+        <li>
+          <!--<a href="#/sendGoods">-->
+          <a ui-sref="sendGoods">
+            <i class="icon sendGoods"></i>
+            <p>我要发货</p>
+          </a>
+        </li>
+        <li>
+          <a href="#/orderQuery">
+            <i class="icon orderQuery"></i>
+            <p>运单查询</p>
+          </a>
+        </li>
+        <li>
+          <a href="#/deliveryRecord">
+            <i class="icon deliveryRecord"></i>
+            <p>发货记录</p>
+          </a>
+        </li>
+        <li>
+          <a href="#/receiptRecord">
+            <i class="icon receiptRecord"></i>
+            <p>收货记录</p>
+          </a>
+        </li>
+        <li>
+          <a href="#/websiteQuery">
+            <i class="icon websiteQuery"></i>
+            <p>网点查询</p>
+          </a>
+        </li>
+        <li>
+          <a href="#/businessHelper">
+            <i class="icon businessAide"></i>
+            <p>业务助手</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,46 @@
+.jiaji_more{
+  .more_list{
+    background-color: #fff;
+    margin-top: 10px;
+
+  }
+  .more_list ul li{
+    height: 45px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 0 15px;
+    position: relative;
+
+  }
+  .more_list ul li:first-child{
+    border-top:1px solid #d5d5d5;
+  }
+  .more_list ul li:first-child:after{
+    display: none;
+  }
+  .more_list ul li:after{
+    position: absolute;
+    content: '';
+    right: 15px;
+    top:50%;
+    margin-top: -8px;
+    background-image: url(../img/personCenter/rightArrow.png);
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    vertical-align: middle;
+
+  }
+  .more_list ul li p{
+    height: 100%;
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+  }
+
+}

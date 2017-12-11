@@ -1,0 +1,71 @@
+.jiaji_feedback{
+  .opinion_info{
+    position: relative;
+    margin: 10px 15px;
+
+  }
+  .opinion_title{
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+  }
+  .opinion_title p{
+    padding: 0 5px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .opinion_list{
+    background-color: #ddd;
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  .opinion_list ul li{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .down{
+    background-image: url(../img/more/down.png);
+    width: 16px;
+    height: 16px;
+  }
+  .up{
+    background-image: url(../img/more/up.png);
+    width: 16px;
+    height: 16px;
+  }
+
+  .feedback_content{
+    margin: 15px;
+
+  }
+  .item_title{
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+  .feedback_content textarea{
+    width: 100%;
+    padding: 10px;
+  }
+  .feedback_content input{
+    height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+  }
+  .submit_btn{
+    padding: 15px;
+  }
+}

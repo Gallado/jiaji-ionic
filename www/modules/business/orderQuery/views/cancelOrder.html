@@ -1,0 +1,33 @@
+<ion-view class="jiaji_cancelOrder">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>取消订单</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <div class="cancel_title">
+      <p>请选择取消订单的原因</p>
+    </div>
+    <div class="reason_list">
+      <ul>
+        <li ng-repeat="item in cancelList">
+          <div class="chooseIcon">
+            <i class="icon" ng-class="{'unCheck':item.isChoose === 0,'check':item.isChoose === 1}" ng-click="selectItem($index,item.name)"></i>
+          </div>
+          <p>{{item.name}}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="cancel_submit">
+      <div class="btn_s" ng-click="cancelOrder()">提交</div>
+    </div>
+
+
+
+
+  </ion-content>
+</ion-view>

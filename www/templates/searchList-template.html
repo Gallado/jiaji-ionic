@@ -1,0 +1,90 @@
+<ion-view cache-view="false">
+  <ion-nav-bar class="bar-huatek">
+    <ion-header-bar class="bar-huatek">
+      <ion-nav-back-button ng-click="goBack(backUrl)"> 
+        <i class="icon_back goBack"></i>
+       </ion-nav-back-button> 
+      <ion-nav-title>{{listTitle}}</ion-nav-title>
+      <ion-nav-buttons side="right">
+        <p ng-if="globalBtn.btns.length == 1" ng-repeat="btn in globalBtn.btns" ng-click="btn.operator()">{{btn.title}}</p>
+        <!--<i ng-if="globalBtn.btns.length > 1" class="icon more_opt_btn" ng-click="openRightMenu()"></i>-->
+        <i ng-if="globalBtn.btns.length > 1" class="icon more_opt_btn" menu-toggle="right"></i>
+      </ion-nav-buttons>
+    </ion-header-bar>
+  </ion-nav-bar>
+
+  <ion-content>
+    <ion-refresher pulling-text="努力加载中···" pulling-icon="" refreshing-icon="" class="huatek-refresh-icon" on-refresh="doRefresh()"></ion-refresher>
+    <div class="search_num">
+        <p>检索到{{searchDataList.length}}条信息</p>
+        <span ng-if="queryFieldList.length>0">
+           <i class="icon title-search" ng-click="openModal()"></i>
+        </span>
+    </div>
+    <div class="searchListTemp">
+      <ul>
+        <li ng-repeat="data in searchDataList" ng-style="{'margin-bottom':$last ?'0':''}">
+          <div class="search-list">
+            <div class="searchList_info" ng-click="watchDetail(data)">
+              <div class="searchListItem">
+                <p ng-repeat="field in pageFields">{{field.title}}：{{data[field.name]}}</p>
+              </div>
+            </div>
+            <div ng-if="dataOperatorBtns.btns.length > 2" class="row searchList_operate">
+              <div class="col col-50"  ng-click="dataOperatorBtns.btns[0].operator(data)">
+                <i class="handleConsign_icon printer"></i>
+                <span>{{dataOperatorBtns.btns[0].title}}</span>
+              </div>
+              <div class="col col-50" ng-click="showMoreOperate(data)">
+                <i class="handleConsign_icon moreOperate"></i>
+                <span>更多</span>
+              </div>
+            </div>
+            <div ng-if="dataOperatorBtns.btns.length <= 2" class="row searchList_operate">
+              <div ng-repeat="btn in dataOperatorBtns.btns" ng-click="dataOperatorBtns.btns[$index].operator(data)" class="col col-50">
+                <i class="handleConsign_icon printer"></i>
+                <span>{{btn.title}}</span>
+              </div>
+            </div>
+          </div>
+          <div ng-show="data.showMoreOperate" ng-if="dataOperatorBtns.btns.length > 2" class="row more_operate">
+            <div ng-repeat="btn in dataOperatorBtns.btns" ng-if="btn != dataOperatorBtns.btns[0]" ng-click="dataOperatorBtns.btns[$index].operator(data)" class="col col-25 more_operate_btn">
+              <i class="handleConsign_icon printer "></i>
+              <span>{{btn.title}}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <ion-infinite-scroll ng-if="!closeMore" immediate-check="false" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+  </ion-content>
+
+
+
+  <!-- <script id="searchModal.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar class="bar-huatek-modal">
+        <a class="button close-modal-icon" ng-click="closeModal()">
+          <i class="icon closeModalDialog"></i>
+        </a>
+        <h1 class="title">查询</h1>
+      </ion-header-bar>
+      <ion-content>
+        <div class="list">
+          <div ng-repeat="queryField in queryFieldList" class="ui-form-item b-d">
+            <label>{{queryField.title}}</label>
+            <input type="text" ng-model="queryField.value" placeholder="请输入要查询的信息">
+          </div>
+          <div class="p-td-35 t-c">
+            <button type="button" class="button-m" ng-click="cleanAll()">清空</button>
+            <button type="button" class="button-m" ng-click="search()">查询</button>
+          </div>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script> -->
+</ion-view>
+
+
+
+

@@ -1,0 +1,67 @@
+.jiaji_deliveryRecord{
+  .deliveryRecord_list{
+
+
+  }
+  .deliveryRecord_list ul{
+
+  }
+  .deliveryRecord_list ul li{
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+  }
+  .record_item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 3px 0;
+  }
+  .record_item p{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    padding: 0 10px;
+  }
+  .city_router{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    flex: 1;
+  }
+  .city_router span{
+    padding: 0 10px;
+  }
+  .time{
+    background-image:url(../img/deliveryRecord/time.png);
+    width: 16px;
+    height: 16px;
+  }
+  .waybill{
+    background-image:url(../img/deliveryRecord/waybill.png);
+    width: 16px;
+    height: 16px;
+  }
+  .order{
+    background-image:url(../img/deliveryRecord/order.png);
+    width: 16px;
+    height: 16px;
+  }
+  .footer{
+    background-image:url(../img/deliveryRecord/footer.png);
+    width: 16px;
+    height: 16px;
+  }
+  .city{
+    background-image:url(../img/deliveryRecord/city.png);
+    width: 16px;
+    height: 16px;
+  }
+  .toCity{
+    background-image:url(../img/deliveryRecord/to.png);
+    width: 16px;
+    height: 16px;
+  }
+
+}

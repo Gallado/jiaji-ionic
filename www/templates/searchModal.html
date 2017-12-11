@@ -1,0 +1,67 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-huatek-modal">
+    <a class="button close-modal-icon" ng-click="closeModal()">
+      <i class="icon closeModalDialog"></i>
+    </a>
+    <h1 class="title">查询</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <div ng-repeat="queryField in queryFieldList" class="ui-form-item b-d">
+        <span class="search_item" ng-if="queryField.componentType == 'text'" ng-show="queryField.isShow">
+          <label>{{queryField.title}}</label>
+          <input type="text" ng-model="queryField.value" ng-disabled = "queryField.readonly=='readonly' || queryField.readonly" placeholder="请输入要查询的信息" >
+        </span>
+         <span class="search_item" ng-if="queryField.componentType == 'number'" ng-show="queryField.isShow">
+          <label>{{queryField.title}}</label>
+          <input type="number" ng-model="queryField.value" ng-disabled = "queryField.readonly=='readonly' || queryField.readonly" placeholder="请输入要查询的信息" >
+        </span>
+
+        <span class="search_item" ng-if="queryField.componentType == 'select'" ng-show="queryField.isShow" >
+          <label>{{queryField.title}}</label>
+          <select style="margin-left:120px;" ng-model="queryField.value" name="{{queryField.name}}" ng-disabled = "queryField.readonly=='readonly' || queryField.readonly" ng-change="cnex_type_of(queryField.event) == 'string'?{{queryField.event}}(queryField.value):queryField.event(queryField.value)">
+            <option ng-repeat="item in queryField.items" value="{{item.value}}">{{item.name}}</option>
+          </select>
+        </span>
+        <span class="model_item" ng-if="queryField.componentType == 'date'" class="item item-input item-select select_list b-d-i" ng-show="queryField.isShow">
+          <p class="item item-icon-left" ion-datetime-picker date ng-model="queryField.value" ng-disabled = "queryField.readonly=='readonly' || queryField.readonly">
+            <!-- <i class="icon ion-ios-calendar positive"></i> -->
+            {{queryField.title}}
+            <strong>{{queryField.value | date: "yyyy-MM-dd"}}</strong>
+          </p>
+        </span>
+        <!-- date-time -->
+        <span class="search_item" ng-if="queryField.componentType == 'date-time'" class="item item-input item-select select_list b-d-i" ng-show="queryField.isShow">
+           <label>{{queryField.title}}</label>
+           <p class="item item-icon-left select_time" ion-datetime-picker ng-model="queryField.value" ng-disabled = "queryField.readonly=='readonly' || queryField.readonly">
+             <span>{{queryField.value | date: "yyyy-MM-dd HH:mm:ss"}}</span>
+            </p>
+        </span>
+       <!-- time -->
+        <span class="search_item" ng-if="queryField.componentType == 'time'" class="item item-input item-select select_list b-d-i" ng-show="queryField.isShow">
+          <label>{{queryField.title}}</label>
+          <p class="item item-icon-left select_time" ion-datetime-picker time seconds ng-model="queryField.value" ng-disabled = "queryField.readonly=='readonly' || queryField.readonly">
+             <span>{{queryField.value | date: "H:mm:ss"}}</span>
+          </p>
+        </span>
+         <span class="search_item" ng-if="queryField.componentType == 'auto-complete'" ng-show="queryField.isShow">
+              <label>{{queryField.title}}</label>
+                  <div type="text" ng-model="queryField.opt"
+                                   modal-select
+                                   on-select="queryField.onSelect(newValue,oldValue)"
+                                   options="queryField.items"  has-search="true" class="select_item"
+                   option-getter="queryField.getOpt(option)"  modal-title="{{queryField.title}}"  >
+                  <div class="option">
+                    <p>{{option.name}}</p>
+                  </div>
+                  <p>{{queryField.opt.name}}</p>
+                  </div>
+        </span>
+      </div>
+      <div class="p-td-35 t-c">
+        <button type="button" class="button-c" ng-click="cleanAll()">清空</button>
+        <button type="button" class="button-m" ng-click="search()">查询</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,46 @@
+<ion-view class="jiaji_deliveryRecord">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>发货记录</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <ion-refresher pulling-text="下拉加载···" refreshing-text='拼命加载中···' pulling-icon="" refreshing-icon="" class="jiaji-refresh-icon" on-refresh="doRefresh()"></ion-refresher>
+    <div class="deliveryRecord_list">
+      <ul>
+        <li ng-repeat="data in deliveryRecordList" ng-click="goDetail()">
+          <div class="record_item">
+            <i class="icon time"></i>
+            <p>{{data.time}}</p>
+          </div>
+          <div class="record_item">
+            <i class="icon order"></i>
+            <p>{{data.orderNo}}</p>
+          </div>
+          <div class="record_item">
+            <i class="icon waybill"></i>
+            <p>{{data.waybillNo}}</p>
+          </div>
+          <div class="record_item">
+            <i class="icon city"></i>
+            <div class="city_router">
+              <span>{{data.departure}}</span>
+              <i class="icon toCity"></i>
+              <span>{{data.destination}}</span>
+            </div>
+
+          </div>
+          <div class="record_item">
+            <i class="icon footer"></i>
+            <p>{{data.reason}}</p>
+          </div>
+
+        </li>
+      </ul>
+    </div>
+
+  </ion-content>
+</ion-view>

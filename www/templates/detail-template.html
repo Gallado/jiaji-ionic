@@ -1,0 +1,343 @@
+<ion-view cache-view="false">
+  <ion-nav-bar class="bar-huatek">
+    <ion-header-bar class="bar-huatek">
+      <ion-nav-back-button>
+        <i class="icon_back goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>{{detailTitle}}</ion-nav-title>
+      <ion-nav-buttons side="right">
+        <p ng-if="model == 'add'"  ng-click="save()">保存</p>
+        <p ng-if="model == 'update'"  ng-click="update()">更新</p>
+      </ion-nav-buttons>
+    </ion-header-bar>
+  </ion-nav-bar>
+
+  <ion-content>
+      <div class="bg-f">
+        <!-- <div ng-if="model == 'read'" ng-repeat="column in formFieldArr.columnArr">
+          <div class="details">{{column.title}}</div>
+          <div ng-if="field.isShow" ng-repeat="field in column.fieldArr" class="ui-form-item ui-form-item-link b-d">
+            <label>{{field.title}}</label>
+            <p>{{detail[field.name]}}</p>
+          </div>
+        </div> -->
+        <!-- <div ng-if="model != 'read'" ng-repeat="column in formFieldArr.columnArr"> -->
+        <div ng-repeat="column in formFieldArr.columnArr">
+          <div class="details">{{column.title}}</div>
+          <div ng-repeat="field in column.fieldArr" ng-style="border-bottom":$last?'none':''">
+          <!-- 输入框 -->
+            <div class="model_item b-d" ng-if="field.componentType == 'input'" ng-show="field.isShow">
+              <div class="item_headline">{{field.title}}</div>
+              <input type="text" ng-model="field.value" ng-blur="field.event(field.value);" ng-disabled = "field.readOnly">
+            </div>
+            <div class="model_item b-d" ng-if="field.componentType == 'trustHtml'" ng-show="field.isShow">
+              <div class="item_headline">{{field.title}}</div>
+              <div ng-bind-html="field.value | to_trusted" style="padding: 0 15px"></div>
+            </div>
+            <!-- 密码框 -->
+            <div class="model_item b-d" ng-if="field.componentType == 'password'" >
+              <div class="item_headline">{{field.title}}</div>
+              <input type="password" ng-model="field.value" ng-disabled = "field.readOnly">
+            </div>
+            <!-- select -->
+            <div class="model_item b-d" ng-if="field.componentType == 'select'" class="item item-input item-select select_list b-d-i"  >
+                <div class="item_headline">{{field.title}}</div>
+                <select id="org" ng-model="field.value" name="{{field.name}}" ng-disabled = "field.readOnly"
+                      ng-change="cnex_type_of(field.event) == 'string'?{{field.event}}(field.value):field.event(field.value)">
+                  <option selected>请选择{{field.title}}</option>
+                  <option ng-repeat="item in field.items" value="{{item.value}}">{{item.name}}</option>
+                </select>
+            </div>
+            <!-- modal-select-single -->
+            <div class="model_item b-d" ng-if="field.componentType == 'modal-select-single'" class="item item-input item-select select_list b-d-i" >
+              <div class="item_headline">{{field.title}}</div>
+              <div type="text" ng-model="field.value" 
+                   modal-title="数据选择" 
+                   search-placeholder="请输入关键字符" 
+                   cancel-search-button="清空" 
+                   load-list-message="数据加载中..."  
+                   cancel-button ="取消"  
+                   reset-button ="重置" 
+                   modal-select
+                   ng-model="field.value"
+                   options="field.items"
+                   option-getter="field.getOpt(option)"
+                   modal-title="Select"
+                   has-search="true" class="select_item" ng-disabled = "field.readOnly">
+                <div class="option">
+                  <h2>{{option.name}}</h2>
+                  <p>{{option.value}}</p>
+                </div><p>{{field.value}}</p>
+                </div>
+            </div>
+            <!-- modal-select-mutiple -->
+            <div class="model_item b-d" ng-if="field.componentType == 'modal-select-mutiple'" class="item item-input item-select select_list b-d-i" >
+                <div class="item_headline">{{field.title}}</div>
+              <div type="text"
+                      modal-title="数据选择" 
+                      search-placeholder="请输入关键字符" 
+                      cancel-search-button="清空" 
+                      load-list-message="数据加载中..."  
+                      cancel-button ="取消"  
+                      reset-button ="重置" 
+                      modal-select
+                      ng-model="field.value"
+                      options="field.items"
+                      option-getter="field.getOpt(option)"
+                      modal-title="Select"
+                      multiple = "true" class="select_item" ng-disabled = "field.readOnly">
+                  <div class="option">
+                    {{option.name}}
+                  </div>
+                  <p>{{field.value}}</p>
+              </div>
+            </div>
+            <!-- modal-select-org -->
+            <div class="model_item b-d" ng-if="field.componentType == 'modal-select-single-org'">
+                <div class="item_headline">{{field.title}}</div>
+                <div type="text" class="select_item" has-search="true"
+                    modal-title="数据选择" 
+                    search-placeholder="请输入关键字符" 
+                    cancel-search-button="清空" 
+                    load-list-message="数据加载中..."  
+                    cancel-button ="取消"  
+                    reset-button ="重置" 
+                    modal-select
+                    ng-model="field.opt"
+                    options="field.items"
+                    on-select="field.onSelect(newValue,oldValue)"
+                    option-getter="field.getOpt(option)"
+                    modal-title="Select">
+                  <div class="option">
+                    <h2>{{option.orgName}}</h2>
+                    <p>{{option.parentName}}</p>
+                  </div>
+                  <p>{{field.opt.orgName}}</p>
+              </div>
+            </div>
+            <!-- modal-select-org -->
+            <div class="model_item b-d" ng-if="field.componentType == 'modal-select-single-name'">
+                <div class="item_headline">{{field.title}}</div>
+                <div type="text" class="select_item" has-search="true"
+                     modal-title="数据选择" 
+                    search-placeholder="请输入关键字符" 
+                    cancel-search-button="清空" 
+                    load-list-message="数据加载中..."  
+                    cancel-button ="取消"  
+                    reset-button ="重置" 
+                    modal-select
+                    ng-model="field.opt"
+                    options="field.items"
+                    on-select="field.onSelect(newValue,oldValue)"
+                    option-getter="field.getOpt(option)"
+                    modal-title="Select">
+                  <div class="option">
+                    <h2>{{option.name}}</h2>
+                  </div>
+                  <p>{{field.opt.name}}</p>
+              </div>
+            </div>
+             <!-- choose-pictrue -->
+            <div class="choose_img_item" ng-if="field.componentType == 'choose-pictrue'" class="item item-input item-select select_list b-d-i" >
+                <div class="choose_img_title">
+                  <div class="item_headline">{{field.title}}</div>
+                  <!-- <img src="img/modelUpload.png" ng-click="field.picture()"> -->
+                  <p ng-click="field.picture()"></p>
+                </div>
+                 <!-- <div class="item" data-ng-repeat="img in images_list">
+                   <img src="{{img}}"  style="width:100%">
+                  </div> -->
+                <!--如果上传图片成功这里放上传的图片-->
+             <div class="choose_img_content" ng-if="images_list.length >0">
+                <ul>
+                  <li data-ng-repeat="img in images_list">
+                    <div class="upload_img_item">
+                         <i class="icon deleteImg" ng-click="deleteFile(img.id)"></i>
+                         <img class="img" src="img/modelUpload.png" ng-if="images_list.length === 0">
+                         <img class="img" src="{{BASE_URL}}api_image{{img.viewUrl}}">
+                    </div>
+                  </li>
+                </ul>
+               </div>
+             <!--<div class="choose_img_content">
+                 <ul>
+                   <li>
+                     <i class="icon deleteImg"></i>
+                     <div class="upload_img_item"><img class="img" src="img/modelUpload.png"></div>
+                   </li>
+                   <li>
+                     <div class="upload_img_item"><img class="img" src="img/modelUpload.png"></div>
+                   </li>
+                   <li>
+                     <div class="upload_img_item"><img class="img" src="img/modelUpload.png"></div>
+                   </li>
+                   <li>
+                     <div class="upload_img_item"><img class="img" src="img/modelUpload.png"></div>
+                   </li>
+                 </ul>
+              </div>
+            </div>-->
+            <!-- city-picker -->
+            <div class="model_item b-d" ng-if="field.componentType == 'city-picker'" class="item item-input item-select select_list b-d-i" >
+                 <div class="item_headline">{{field.title}}</div>
+                 <div class="city_picker">
+                   <!-- <ionic-city-picker options='field.CityPickData' class="picker_content"></ionic-city-picker> -->
+                    <hms-pct-select ng-transclude></hms-pct-select>
+                 </div>
+                  <script id="hmsPCTSelect-modal.html" type="text/ng-template">
+                    <ion-modal-view>
+                      <ion-header-bar class="bar-balanced">
+                        <div class="buttons" ng-show="showBackBtn">
+                          <button ng-click="goBackSlide()" class="button button-clear">
+                            返回
+                          </button>
+                        </div>
+                        <h1 class="title">选择地址</h1>
+                        <div class="buttons">
+                          <button ng-click="PCTModal.hide();" class="button button-clear">
+                            取消
+                          </button>
+                        </div>
+                      </ion-header-bar>
+                      <ion-content overflow-scroll="true" style="overflow: hidden">
+                        <ion-slide-box show-pager="false" style="height: 100%;" does-continue="false" delegate-handle="PCTSelectDelegate" ng-init="lockSlide()">
+                          <ion-slide >
+                            <ion-scroll style="height: 100%;" scrollbar-y="false" delegate-handle="PCTSelectProvince">
+                              <ion-item class="city_item" ng-click="chooseProvince(item);" ng-repeat="item in provincesData">
+                                <span>{{item}}</span>
+                                <i class="icon ion-ios-arrow-right icon-item"></i>
+                              </ion-item>
+                            </ion-scroll>
+                          </ion-slide>
+                          <!--省选择结束-->
+
+                          <!--市选择开始-->
+                          <ion-slide>
+                            <ion-scroll style="height: 100%;" scrollbar-y="false" delegate-handle="PCTSelectCity">
+                              <ion-item class="city_item" ng-click="chooseCity(item);" ng-repeat="item in citiesData">
+                                <span>{{item}}</span>
+                                <i class="icon ion-ios-arrow-right icon-item"></i>
+                              </ion-item>
+                            </ion-scroll>
+                          </ion-slide>
+                          <!--市选择结束-->
+
+                          <!--县选择开始-->
+                          <ion-slide>
+                            <ion-scroll style="height: 100%;" scrollbar-y="false" delegate-handle="PCTSelectTown">
+                              <ion-item class="city_item" ng-click="chooseTown(item);" ng-repeat="item in townData">
+                                <span>{{item}}</span>
+                                <i class="icon ion-ios-arrow-right icon-item"></i>
+                              </ion-item>
+                            </ion-scroll>
+                          </ion-slide>
+                        </ion-slide-box>
+
+                      </ion-content>
+                    </ion-modal-view>
+
+                  </script>
+            </div>
+            <!-- date -->
+            <div class="model_item b-d" ng-if="field.componentType == 'date'" class="item item-input item-select select_list b-d-i" >
+                <!--<div class="item item-icon-left" ion-datetime-picker date ng-model="field.value">
+                    &lt;!&ndash; <i class="icon ion-ios-calendar positive"></i> &ndash;&gt;
+                     {{field.title}}:
+                    <strong>{{field.value | date: "yyyy-MM-dd"}}</strong>
+                </div>-->
+              <div class="item_headline">{{field.title}}</div>
+              <div class="date-picker" ion-datetime-picker date ng-model="field.value">
+                <p>{{field.value | date: "yyyy-MM-dd"}}</p>
+              </div>
+            </div>
+            <!-- date-time -->
+            <div class="model_item b-d" ng-if="field.componentType == 'date-time'" class="item item-input item-select select_list b-d-i" >
+               <!-- <div class="item_headline">{{field.title}}</div> -->
+               <!--<div class="item item-icon-left" ion-datetime-picker ng-model="field.value">
+                  &lt;!&ndash; <i class="icon ion-ios-grid-view-outline positive"></i> &ndash;&gt;
+                  {{field.title}}:
+                  <strong>{{field.value | date: "yyyy-MM-dd H:mm"}}</strong>
+              </div>-->
+              <div class="item_headline">{{field.title}}</div>
+              <div class="date-picker" ion-datetime-picker ng-model="field.value">
+                <p>{{field.value | date: "yyyy-MM-dd H:mm"}}</p>
+              </div>
+            </div>
+             <!-- time -->
+            <div class="model_item b-d" ng-if="field.componentType == 'time'" class="item item-input item-select select_list b-d-i" >
+               <!-- <div class="item_headline">{{field.title}}</div> -->
+              <!--<div class="item item-icon-left" ion-datetime-picker time seconds ng-model="field.value">
+                  &lt;!&ndash; <i class="icon ion-ios-time positive"></i> &ndash;&gt;
+                   {{field.title}}:
+                  <strong>{{field.value | date: "H:mm:ss"}}</strong>
+              </div>-->
+              <div class="item_headline">{{field.title}}</div>
+              <div class="date-picker" ion-datetime-picker time seconds ng-model="field.value">
+                <p>{{field.value | date: "H:mm:ss"}}</p>
+              </div>
+            </div>
+            <!-- 数字 -->
+            <div class="model_item b-d" ng-if="field.componentType == 'number'" class="item item-input item-select select_list b-d-i" >
+                <div class="item_headline">{{field.title}}</div>
+                <input type="number" ng-model="field.value" ng-disabled = "field.readOnly">
+            </div>
+            <!-- autoComplete -->
+            <div class="model_item b-d" ng-if="field.componentType == 'auto-complete'" >
+              <div class="item_headline">{{field.title}}</div>
+              <input type="text" ionic-autocomplete="{items:field.items, onSelect:field.onSelect}" placeholder="Search ?" ng-model="search"/>
+            </div>
+            <!-- checkbox -->
+            <div class="model_item b-d" ng-if="field.componentType == 'checkbox'" >
+              <div class="model_checkbox">
+                <label class="checkbox">
+                  <input type="checkbox" ng-disabled = "field.readOnly">
+                </label>
+              </div>
+              <div class="checkbox_item">{{field.title}}</div>
+               <!--<ion-checkbox ng-model="field.value" class="model_checkbox"
+                  ng-true-value="true"
+                  ng-false-value="false">
+                {{field.title}}
+              </ion-checkbox>-->
+            </div>
+            <!-- toggle -->
+            <div class="model_item b-d" ng-if="field.componentType == 'toggle'">
+              <div class="item_headline">{{field.title}}</div>
+              <div class="model-toggle">
+                <label class="toggle toggle-assertive">
+                  <input type="checkbox">
+                  <div class="track">
+                    <div class="handle"></div>
+                  </div>
+                </label>
+              </div>
+              <!--<ion-toggle toggle-class="toggle-assertive" class="model_toggle"
+                ng-model="field.value"
+                ng-true-value="true"
+                ng-false-value="false">
+                {{field.title}}
+              </ion-toggle>-->
+            </div>
+            <!-- radio -->
+            <div class="model_item b-d" ng-if="field.componentType == 'radio'" >
+             <div class="item_headline">{{field.title}}</div>
+              <ul>
+                <li ng-repeat="item in field.items">
+                  <ion-radio
+                             ng-value="item.value"
+                             ng-model="field.value"
+                             name="server-side">
+                    {{item.name}}
+                  </ion-radio>
+                </li>
+              </ul>
+
+          </div>
+        </div>
+      </div>
+  </ion-content>
+  <!-- <ion-footer-bar ng-if="model != 'read'" align-title="left" class="bar-assertive">
+    <button ng-if="model == 'add'" type="button" class="button-b" ng-click="save()">保存</button>
+    <button ng-if="model == 'update'" type="button" class="button-b" ng-click="update()">更新</button>
+  </ion-footer-bar> -->
+</ion-view>

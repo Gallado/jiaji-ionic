@@ -1,0 +1,90 @@
+.jiaji_home{
+  .home_ad{
+    width: 100%;
+    height: 30%;
+  }
+  .slider_item{
+    width: 100%;
+    height: 100%;
+  }
+  .home_menu{
+    background-color: #fff;
+    border-top: 1px solid #d5d5d5;
+    height: 70%;
+  }
+  .home_menu ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-flow: row wrap;
+    height: 100%;
+  }
+  .home_menu ul li{
+    flex: 0.5;
+    height: 33.3333%;
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #d5d5d5;
+  }
+  .home_menu ul li:nth-child(2n-1){
+    border-right: 1px solid #d5d5d5;
+
+  }
+  .home_menu ul li:last-child{
+    border-bottom: none;
+  }
+  .home_menu ul li:nth-last-child(2){
+    border-bottom: none;
+  }
+  .home_menu ul li p{
+    padding: 5px 0;
+  }
+  .call{
+    background-image:url(../img/home/call.png);
+    width: 20px;
+    height: 20px;
+  }
+  .scan{
+    background-image:url(../img/home/scan.png);
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+  }
+  .sendGoods{
+    background-image:url(../img/home/sendGoods.png);
+    width: 60px;
+    height: 60px;
+  }
+  .websiteQuery{
+    background-image:url(../img/home/websiteQuery.png);
+    width: 60px;
+    height: 60px;
+  }
+  .deliveryRecord{
+    background-image:url(../img/home/deliveryRecord.png);
+    width: 60px;
+    height: 60px;
+  }
+  .receiptRecord{
+    background-image:url(../img/home/receiptRecord.png);
+    width: 60px;
+    height: 60px;
+  }
+  .orderQuery{
+    background-image:url(../img/home/orderQuery.png);
+    width: 60px;
+    height: 60px;
+  }
+  .businessAide{
+    background-image:url(../img/home/businessAide.png);
+    width: 60px;
+    height: 60px;
+  }
+
+
+
+
+}

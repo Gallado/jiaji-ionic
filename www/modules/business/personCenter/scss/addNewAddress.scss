@@ -1,0 +1,59 @@
+.jiaji_addNewAddress{
+  .address_info{
+
+  }
+  .address_info ul li{
+    height: 45px;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid #d5d5d5;
+  }
+  .address_info ul li label{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 85px;
+  }
+  .address_info ul li input{
+    height: 100%;
+    flex: 1;
+    border:none;
+  }
+  .address_info ul li .location_address{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .address_info ul li .location_address .locationIcon{
+    width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+  }
+  .new_address{
+    padding: 30px 0;
+  }
+  .new_address .btn{
+    width: 90%;
+    border-radius: 6px;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #D61E14;
+    color: #fff;
+  }
+  .location{
+    background-image: url(../img/personCenter/location.png);
+    width: 25px;
+    height: 25px;
+  }
+}

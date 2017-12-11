@@ -1,0 +1,30 @@
+<ion-view>
+    <ion-nav-bar class="bar-huatek">
+        <ion-header-bar class="bar-huatek">
+            <ion-nav-back-button>
+                <i class="icon_back goBack"></i>
+            </ion-nav-back-button>
+            <ion-nav-title>办理托运</ion-nav-title>
+            <ion-nav-buttons side="right">
+                <button class="button" ng-click="save()">保存</button>
+            </ion-nav-buttons>
+        </ion-header-bar>
+    </ion-nav-bar>
+    <ion-content class="has-header has-footer">
+        <div class="ui-form-item b-d">
+            <ionic-city-picker options='vm.CityPickData1'></ionic-city-picker>
+        </div>
+        <div class="ui-form-item b-d">
+            <ionic-city-picker options='vm.CityPickData2'></ionic-city-picker>
+        </div>
+        <div class="ui-form-item b-d">
+           <ionic-city-picker options='vm.CityPickData3'></ionic-city-picker>
+        </div>
+        <div class="ui-form-item b-d">
+            <ionic-city-picker options='vm.CityPickData4'></ionic-city-picker>
+        </div>
+    </ion-content>
+    <!-- <ion-footer-bar align-title="left" class="bar-assertive">
+    <button type="button" class="button-b" ng-click="goConsignUser()">提交</button>
+  </ion-footer-bar> -->
+</ion-view>

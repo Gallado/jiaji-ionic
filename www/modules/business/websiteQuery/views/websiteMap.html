@@ -1,0 +1,46 @@
+<ion-view class="jiaji_websiteMap">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>网点地图</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false" scrollbar-y="false">
+    <div class="websiteMap_content">
+      <div class="website_map">
+        <div class="map_content" id="allmap"></div>
+      </div>
+      <div class="website_content">
+        <div class="website_info">
+          <div class="website_logo">
+            <img class="img" src="img/personCenter/loginImg.png">
+          </div>
+          <div class="main_info">
+            <h3>{{websiteInfo.name}}</h3>
+            <p>{{websiteInfo.address}}</p>
+            <p>{{websiteInfo.telephone}}</p>
+            <div class="another_info">
+              <div class="info_item">
+                <i class="icon tag"></i>
+                <p>{{websiteInfo.tag}}</p>
+              </div>
+              <div class="info_item">
+                <i class="icon position"></i>
+                <p>{{websiteInfo.distance}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="website_operate">
+          <div class="operate_item">
+            <i class="icon telephone"></i>
+            <p>电话</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

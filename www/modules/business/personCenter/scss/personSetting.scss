@@ -1,0 +1,100 @@
+.jiaji_personSetting{
+  .setting_img{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 0 15px;
+    border-bottom: 1px solid #d5d5d5;
+    border-top: 1px solid #d5d5d5;
+    position: relative;
+  }
+  .setting_img:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    background-image: url(../img/personCenter/rightArrow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    right: 15px;
+  }
+  .setting_img label{
+    width: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+  }
+  .setting_img .show_img{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    padding-right: 30px;
+  }
+  .setting_img .show_img .imgIcon img{
+    border-radius: 45px;
+  }
+  .setting_img .show_img .imgIcon{
+    width: 45px;
+    height: 45px;
+  }
+  .setting_list{
+
+  }
+  .setting_list ul li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 45px;
+    background-color: #fff;
+    padding: 0 15px;
+    border-bottom: 1px solid #d5d5d5;
+    position: relative;
+  }
+  .setting_list ul li:first-child{
+    border-top: 1px solid #d5d5d5;
+  }
+  .setting_list ul li:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    background-image: url(../img/personCenter/rightArrow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    right: 15px;
+  }
+  .setting_list ul li label{
+    width: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+  }
+  .setting_list ul li p{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
+
+  }
+
+}

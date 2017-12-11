@@ -1,0 +1,254 @@
+.jiaji_orderDetail{
+  .order_detail{
+    background-color: #fff;
+  }
+  .order_title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    padding: 0 15px;
+  }
+  .order_title .orderIcon{
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  .order_title .order_no{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .order_title .order_no p{
+    flex: 1;
+
+  }
+  .order_title .order_no .order_type{
+
+  }
+  .order_title .order_no .order_type p{
+    padding: 0 10px;
+    border: 1px solid #D61E14;
+    color: #D61E14;
+    border-radius: 12px;
+    font-size: 10px;
+  }
+  .order_info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 15px;
+  }
+  .order_info .order_address{
+    flex: 0.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .order_info .order_address h3{
+    font-weight: normal;
+    padding: 5px 0;
+
+  }
+  .order_info .order_address p{
+    padding: 5px 0;
+  }
+  .order_info .order_status{
+    flex: 0.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .order_info .order_status p{
+    background-color: red;
+    border-radius: 15px;
+    padding: 3px 10px;
+    color: #fff;
+  }
+  .order_time{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px;
+    border-top: 1px dashed #d5d5d5;
+  }
+  .order_time .send_time{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+  }
+  .order_time .send_time label{
+    width: 80px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .order_time .send_time p{
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  .order_time >p{
+    padding: 5px 0;
+
+  }
+  .order_time .reservation_pick{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+  }
+  .order_time .reservation_pick .timeIcon{
+    width: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .order_time .reservation_pick .reservation_time{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+  }
+  .order_time .reservation_pick .reservation_time label{
+
+  }
+  .order_time .reservation_pick .reservation_time p{
+
+  }
+  .time{
+    background-image:url(../img/orderQuery/time.png);
+    width: 20px;
+    height: 20px;
+  }
+
+
+  .order_address_list{
+    background-color: #fff;
+    margin: 10px 0;
+    border-top: 1px solid #d5d5d5;
+  }
+  .address_title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    padding: 0 15px;
+    border-bottom: 1px solid #d5d5d5;
+  }
+  .address_title p{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .address_title .moreIcon{
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .address_info{
+    padding: 15px;
+    border-bottom: 1px solid #d5d5d5;
+  }
+  .address_info ul li{
+    border-bottom: 1px solid #d5d5d5;
+    padding: 10px;
+  }
+  .address_info ul li:last-child{
+    border-bottom: none;
+  }
+  .address_info ul li .person_info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  .address_info ul li .person_info .person_item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .address_info ul li .address{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0;
+  }
+  .address_info ul li .address label{
+    width: 80px;
+  }
+  .address_info ul li .address p{
+    flex: 1;
+  }
+  .showMore{
+    background-image:url(../img/orderQuery/moreArrow.png);
+    width: 20px;
+    height: 20px;
+  }
+
+  .express_information{
+    padding: 0 15px;
+    border-bottom: 1px solid #d5d5d5;
+  }
+  .express_information ul li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 35px;
+    justify-content: space-between;
+  }
+  .express_information ul li label{
+
+  }
+  .express_information ul li p{
+    color: #7d7d7d;
+  }
+  .cancel_order{
+    padding: 30px;
+  }
+
+  .waitLeft{
+    background-image:url(../img/orderQuery/waitLeft.png);
+    width: 30px;
+    height: 30px;
+  }
+  .waitRight{
+    background-image:url(../img/orderQuery/waitRight.png);
+    width: 30px;
+    height: 30px;
+  }
+  .completeLeft{
+    background-image:url(../img/orderQuery/completeLeft.png);
+    width: 30px;
+    height: 30px;
+  }
+  .completeRight{
+    background-image:url(../img/orderQuery/completeRight.png);
+    width: 30px;
+    height: 30px;
+  }
+  .send{
+    background-image:url(../img/orderQuery/send.png);
+    width: 20px;
+    height: 20px;
+  }
+  .get{
+    background-image:url(../img/orderQuery/get.png);
+    width: 20px;
+    height: 20px;
+  }
+
+}

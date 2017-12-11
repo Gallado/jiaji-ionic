@@ -1,0 +1,59 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+@import "../www/css/main.scss";
+@import "../www/modules/business/home/scss/home.scss";
+@import "../www/modules/business/sendGoods/scss/sendGoods.scss";
+
+@import "../www/modules/business/personCenter/scss/personCenter.scss";
+@import "../www/modules/business/personCenter/scss/personSetting.scss";
+@import "../www/modules/business/personCenter/scss/myEvaluation.scss";
+@import "../www/modules/business/personCenter/scss/sendDraftbox.scss";
+@import "../www/modules/business/personCenter/scss/commonAddress.scss";
+@import "../www/modules/business/personCenter/scss/addNewAddress.scss";
+@import "../www/modules/business/personCenter/scss/forgetPassword.scss";
+@import "../www/modules/business/personCenter/scss/messageCenter.scss";
+
+@import "../www/modules/business/deliveryRecord/scss/deliveryRecord.scss";
+@import "../www/modules/business/deliveryRecord/scss/deliveryDetail.scss";
+
+@import "../www/modules/business/receiptRecord/scss/receiptRecord.scss";
+
+@import "../www/modules/business/businessHelper/scss/businessHelper.scss";
+@import "../www/modules/business/businessHelper/scss/priceAging.scss";
+@import "../www/modules/business/businessHelper/scss/transportRequirement.scss";
+@import "../www/modules/business/businessHelper/scss/productDescription.scss";
+
+@import "../www/modules/business/discovery/scss/discovery.scss";
+@import "../www/modules/business/discovery/scss/coupon.scss";
+@import "../www/modules/business/discovery/scss/integral.scss";
+
+@import "../www/modules/business/more/scss/more.scss";
+@import "../www/modules/business/more/scss/feedback.scss";
+
+@import "../www/modules/business/login/scss/login.scss";
+@import "../www/modules/business/websiteQuery/scss/websiteQuery.scss";
+@import "../www/modules/business/websiteQuery/scss/websiteMap.scss";
+@import "../www/modules/business/orderQuery/scss/orderQuery.scss";
+@import "../www/modules/business/orderQuery/scss/orderDetail.scss";
+@import "../www/modules/business/orderQuery/scss/cancelOrder.scss";
+@import "../www/modules/business/deliveryRange/scss/deliveryRange.scss";

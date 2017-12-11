@@ -1,0 +1,24 @@
+<ion-view class="jiaji_messageCenter">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>消息中心</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <div class="message_tab">
+      <ul>
+        <li ng-click="selectMessageTab(0)">
+          <p ng-class="{'activeTab':selectMessageTabIndex === 0}">物流消息</p>
+        </li>
+        <li ng-click="selectMessageTab(1)">
+          <p ng-class="{'activeTab':selectMessageTabIndex === 1}">系统消息</p>
+        </li>
+      </ul>
+    </div>
+
+
+  </ion-content>
+</ion-view>

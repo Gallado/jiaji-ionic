@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova-mocks.min.js"></script>
+    <script src="cordova.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="js/component/ionic-pickcity-master/src/css/ionic-pickcity.css">
+    <script type="text/javascript" src="js/component/ionic-pickcity-master/src/js/ionic-pickcity.js"></script>
+    <script type="text/javascript" src="js/component/ionic-pickcity-master/src/js/ionic-pickcity-service.js"></script>
+
+
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/services/cache/CacheService.js"></script>
+    <script src="js/services/loading/LoadingService.js"></script>
+
+
+    <script src="modules/business/home/js/controller/homeController.js"></script>
+    <script src="modules/business/home/js/service/homeService.js"></script>
+    <script src="modules/business/sendGoods/js/controller/sendGoodsController.js"></script>
+    <script src="modules/business/login/js/controller/loginController.js"></script>
+
+
+    <script src="modules/business/deliveryRecord/js/controller/deliveryRecordController.js"></script>
+    <script src="modules/business/deliveryRecord/js/controller/deliveryDetailController.js"></script>
+
+    <script src="modules/business/receiptRecord/js/controller/receiptRecordController.js"></script>
+
+    <script src="modules/business/businessHelper/js/controller/businessHelperController.js"></script>
+    <script src="modules/business/businessHelper/js/controller/priceAgingController.js"></script>
+    <script src="modules/business/businessHelper/js/controller/transportRequirementController.js"></script>
+    <script src="modules/business/businessHelper/js/controller/productDescriptionController.js"></script>
+    <script src="modules/business/businessHelper/js/controller/appreciationServiceController.js"></script>
+
+    <script src="modules/business/discovery/js/controller/discoveryController.js"></script>
+    <script src="modules/business/discovery/js/controller/couponController.js"></script>
+    <script src="modules/business/discovery/js/controller/integralController.js"></script>
+
+    <script src="modules/business/more/js/controller/moreController.js"></script>
+    <script src="modules/business/more/js/controller/feedbackController.js"></script>
+
+
+    <script src="modules/business/websiteQuery/js/controller/websiteQueryController.js"></script>
+    <script src="modules/business/websiteQuery/js/controller/websiteMapController.js"></script>
+
+    <script src="modules/business/personCenter/js/controller/personCenterController.js"></script>
+    <script src="modules/business/personCenter/js/controller/personSettingController.js"></script>
+    <script src="modules/business/personCenter/js/controller/myEvaluationController.js"></script>
+    <script src="modules/business/personCenter/js/controller/sendDraftboxController.js"></script>
+    <script src="modules/business/personCenter/js/controller/commonAddressController.js"></script>
+    <script src="modules/business/personCenter/js/controller/addNewAddressController.js"></script>
+    <script src="modules/business/personCenter/js/controller/editAddressController.js"></script>
+    <script src="modules/business/personCenter/js/controller/forgetPasswordController.js"></script>
+    <script src="modules/business/personCenter/js/controller/messageCenterController.js"></script>
+
+    <script src="modules/business/orderQuery/js/controller/orderQueryController.js"></script>
+    <script src="modules/business/orderQuery/js/controller/orderDetailController.js"></script>
+    <script src="modules/business/orderQuery/js/controller/cancelOrderController.js"></script>
+    <script src="modules/business/deliveryRange/js/controller/deliveryRangeController.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=uGqYwgqGCndbkcqf795zw8ajEN1hgaMo"></script>
+
+  </head>
+  <body ng-app="huatekApp">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <!--<ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>-->
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

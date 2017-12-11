@@ -1,0 +1,18 @@
+{
+  "name": "jiaji-App",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ],
+  "integrations": {
+    "gulp": {},
+    "cordova": {}
+  },
+  "type": "ionic1"
+}

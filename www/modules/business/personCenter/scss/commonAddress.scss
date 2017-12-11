@@ -1,0 +1,94 @@
+.jiaji_commonAddress{
+  .address_list{
+
+  }
+  .address_list ul li{
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-top: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
+    position: relative;
+  }
+  .address_list ul li:after{
+    position: absolute;
+    content: '';
+    right: 20px;
+    top: 50%;
+    margin-top: -8px;
+    background-image: url(../img/personCenter/rightArrow.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+
+  }
+  .address_list ul li .main_info{
+    padding: 10px 15px;
+  }
+  .address_list ul li .main_info .item_info{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 5px 0;
+  }
+  .address_list ul li .main_info .item_info p{
+    padding: 0 10px;
+    flex: 1;
+  }
+  .f_c{
+    color: #666;
+  }
+
+
+
+  .add_new_address{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+  }
+  .add_new_address .add_btn{
+    width: 80%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #D61E14;
+    color: #fff;
+  }
+  .add_new_address .add_btn p{
+    padding: 0 10px;
+  }
+  .add{
+    background-image:url(../img/personCenter/add.png);
+    margin: 0 5px;
+  }
+  .user{
+    background-image:url(../img/personCenter/user.png);
+    width: 20px;
+    height: 20px;
+  }
+  .phone{
+    background-image:url(../img/personCenter/phone.png);
+    width: 18px;
+    height: 18px;
+  }
+  .address{
+    background-image:url(../img/personCenter/address.png);
+    width: 18px;
+    height: 18px;
+  }
+  .detailAddress{
+    background-image:url(../img/personCenter/detailAddress.png);
+    width: 18px;
+    height: 18px;
+  }
+
+}

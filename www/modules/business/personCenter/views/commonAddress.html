@@ -1,0 +1,43 @@
+<ion-view class="jiaji_commonAddress">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>常用地址</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <div class="address_list">
+      <ul>
+        <li ng-repeat="data in commonAddressData">
+          <div class="main_info" ng-click="selectItem(data)">
+            <div class="item_info">
+              <i class="icon user"></i>
+              <p>{{data.name}}</p>
+            </div>
+            <div class="item_info">
+              <i class="icon phone"></i>
+              <p>{{data.phoneNo}}</p>
+            </div>
+            <div class="item_info">
+              <i class="icon address"></i>
+              <p class="f_c">{{data.address}}</p>
+            </div>
+            <div class="item_info">
+              <i class="icon detailAddress"></i>
+              <p class="f_c">{{data.detailAddress}}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </ion-content>
+  <ion-footer-bar align-title="left" class="bar-assertive">
+    <div class="footer-bar" ng-click="addNewAddress()">
+      <i class="icon add"></i>
+      <p>添加新地址</p>
+    </div>
+  </ion-footer-bar>
+</ion-view>

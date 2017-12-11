@@ -1,0 +1,688 @@
+<ion-view cache-view="false">
+  <ion-nav-bar class="bar-huatek">
+    <ion-header-bar class="bar-huatek">
+      <ion-nav-back-button>
+        <i class="icon_back goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>{{detailTitle}}</ion-nav-title>
+      <ion-nav-buttons side="right">
+        <p ng-if="model == 'add'"  ng-click="save()">保存</p>
+        <p ng-if="model == 'update'"  ng-click="update()">更新</p>
+      </ion-nav-buttons>
+    </ion-header-bar>
+  </ion-nav-bar>
+
+  <ion-content has-bouncing="false">
+    <div class="detail_content bg-f" >
+      <!--详情页面分类-->
+      <div class="detailTab">
+        <!-- <ion-scroll delegate-handle="detailTabList" has-bouncing="true" scrollbar-y="false" zooming="false" direction="y" ng-style="{'height':ionScrollHeight}"> -->
+          <ul>
+            <li  ng-click="selectDetailTabItem(item,1)" ng-class="{'activeTab':selectDetailTabIndex === 1}">
+              <p>运单</p>
+            </li>
+            <li  ng-click="selectDetailTabItem(item,2)" ng-class="{'activeTab':selectDetailTabIndex === 2}">
+              <p>发货人</p>
+            </li>
+            <li  ng-click="selectDetailTabItem(item,3)" ng-class="{'activeTab':selectDetailTabIndex === 3}">
+              <p>收货人</p>
+            </li>
+            <li  ng-click="selectDetailTabItem(item,4)" ng-class="{'activeTab':selectDetailTabIndex === 4}">
+              <p>货物</p>
+            </li>
+            <li  ng-click="selectDetailTabItem(item,5)" ng-class="{'activeTab':selectDetailTabIndex === 5}">
+              <p>费用</p>
+            </li>
+            <li  ng-click="selectDetailTabItem(item,6)" ng-class="{'activeTab':selectDetailTabIndex === 6}">
+              <p>结算</p>
+            </li>
+            <li  ng-click="selectDetailTabItem(item,7)" ng-class="{'activeTab':selectDetailTabIndex === 7}">
+              <p>人员</p>
+            </li>
+            <li  ng-click="selectDetailTabItem(item,8)" ng-class="{'activeTab':selectDetailTabIndex === 8}">
+              <p>承运人</p>
+            </li>
+          </ul>
+        <!-- </ion-scroll> -->
+      </div>
+
+      <!--分类的详情content-->
+      <div class="detailItem">
+        <!-- <ion-scroll delegate-handle="detailInfoList" has-bouncing="true" scrollbar-y="false" zooming="false" direction="y" ng-style="{'height':ionScrollHeight}"> -->
+        <!-- 运单 -->
+          <div class="detail_info" ng-if="selectDetailTabIndex === 1">
+            <div class="detail_info_list">
+              <ul>
+                <li>
+                  <label>运单号</label>
+                  <input type="text" ng-model="dataFiled.get('waybill').value"
+                                     ng-blur="dataFiled.get('waybill').event(dataFiled.get('waybill').value);">
+                </li>
+                <li class="detail_info_item">
+                  <label>运单类型</label>
+                  <select id="org" ng-model="dataFiled.get('waybillType').value" name="{{dataFiled.get('waybillType').name}}"
+                    ng-disabled="dataFiled.get('waybillType').readonly =='readonly'|| dataFiled.get('waybillType').readonly">
+                    <option selected>请选择{{dataFiled.get('waybillType').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('waybillType').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                  <!--
+                  <ul>
+                    <li ng-repeat="item in dataFiled.get('waybillType').items">
+                      <ion-radio ng-value="item.value" ng-model="dataFiled.get('waybillType').value"  name="server-side">
+                        {{item.name}}
+                      </ion-radio>
+                    </li>
+                  </ul>
+                  -->
+                </li>
+                <li>
+                  <label>产品类型</label>
+                  <select id="org" ng-model="dataFiled.get('transportprod').value" name="{{dataFiled.get('transportprod').name}}">
+                    <option selected>请选择{{dataFiled.get('transportprod').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('transportprod').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li>
+                  <label>发站</label>
+                  <input type="text" ng-model="dataFiled.get('sendstation').value"
+                                     ng-blur="dataFiled.get('sendstation').event(dataFiled.get('sendstation').value);"
+                                     ng-disabled="dataFiled.get('sendstation').readonly =='readonly'|| dataFiled.get('sendstation').readonly">
+                </li>
+                <li ng-show="dataFiled.get('sendstationId').isShow">
+                  <label>发站ID</label>
+                  <input type="text" ng-model="dataFiled.get('sendstationId').isShow.value" >
+                </li>
+                <li ng-show="dataFiled.get('sendstationCode').isShow">
+                  <label >发站编码</label>
+                  <input type="text" ng-model="dataFiled.get('sendstationCode').value">
+                </li>
+                <li>
+                  <label>发站办事处</label>
+                  <input type="text" ng-model="dataFiled.get('sendstationoffice').value"
+                                     ng-blur="dataFiled.get('sendstationoffice').event(dataFiled.get('sendstationoffice').value);"
+                         ng-disabled="dataFiled.get('sendstationoffice').readonly =='readonly'|| dataFiled.get('sendstationoffice').readonly">
+                </li>
+                <li ng-show="dataFiled.get('sendstationofficeId').isShow">
+                  <label>发站办事处ID</label>
+                  <input type="text" ng-model="dataFiled.get('sendstationofficeId').value">
+                </li>
+                <li ng-show="dataFiled.get('sendstationofficeCode').isShow">
+                  <label>发站办事处编码</label>
+                  <input type="text" ng-model="dataFiled.get('sendstationofficeCode').value">
+                </li>
+
+                <li>
+                  <label>到站</label>
+                  <input type="text" ng-model="dataFiled.get('arrivestation').value"
+                         ng-disabled="dataFiled.get('arrivestation').readonly =='readonly'|| dataFiled.get('arrivestation').readonly">
+                </li>
+                <li ng-show="dataFiled.get('arrivestationId').isShow">
+                  <label>到站ID</label>
+                  <input type="text" ng-model="dataFiled.get('arrivestationId').value">
+                </li>
+                <li ng-show="dataFiled.get('arrivestationCode').isShow">
+                  <label>到站编码</label>
+                  <input type="text" ng-model="dataFiled.get('arrivestationCode').value">
+                </li>
+                <li>
+                  <label>到站办事处</label>
+                  <div type="text" ng-model="dataFiled.get('arriveoffice').opt"
+                                   modal-select
+                                   on-select="dataFiled.get('arriveoffice').onSelect(newValue,oldValue)"
+                                   options="dataFiled.get('arriveoffice').items"  has-search="true" class="select_item"
+                   option-getter="dataFiled.get('arriveoffice').getOpt(option)"  modal-title="Select"  >
+                  <div class="option">
+                    <h2>{{option.orgName}}</h2>
+                    <p>{{option.parentName}}</p>
+                  </div>
+                  <p>{{dataFiled.get('arriveoffice').opt.orgName}}</p>
+                </li>
+                <li ng-show="dataFiled.get('arriveofficeId').isShow">
+                  <label>到站办事处ID</label>
+                  <input type="text" ng-model="dataFiled.get('arriveofficeId').value">
+                </li>
+                <li ng-show="dataFiled.get('arriveofficeCode').isShow">
+                  <label>到站办事处编码</label>
+                  <input type="text" ng-model="dataFiled.get('arriveofficeCode').value">
+                </li>
+                <li >
+                  <label>服务方式</label>
+                  <select id="org" ng-model="dataFiled.get('servicetype').value" name="{{dataFiled.get('servicetype').name}}">
+                    <option selected>请选择{{dataFiled.get('servicetype').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('servicetype').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- 发货人 -->
+          <div class="detail_info" ng-if="selectDetailTabIndex === 2">
+            <div class="detail_info_list">
+              <ul>
+                <li class="detail_info_item">
+                  <label>是否要发票</label>
+                  <select id="org" ng-model="dataFiled.get('goodsIsTicket').value" name="{{dataFiled.get('goodsIsTicket').name}}">
+                    <option selected>请选择{{dataFiled.get('goodsIsTicket').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('goodsIsTicket').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                  <!--
+                  <ul>
+                    <li ng-repeat="item in dataFiled.get('goodsIsTicket').items">
+                      <ion-radio ng-value="item.value" ng-model="dataFiled.get('goodsIsTicket').value"  name="server-side">
+                        {{item.name}}
+                      </ion-radio>
+                    </li>
+                  </ul>
+                  -->
+                </li>
+                <li>
+                  <label>发货人</label>
+                  <input type="text" placeholder="检索发货人" ng-model="search"
+                  ionic-autocomplete="{items:dataFiled.get('consignorName').items,onSelect:dataFiled.get('consignorName').onSelect}"/>
+                </li>
+                <li>
+                  <label>客户编号</label>
+                  <input type="text" ng-model="dataFiled.get('customer').value">
+                </li>
+                <li>
+                  <label>客户等级</label>
+                  <input type="text" ng-model="dataFiled.get('customergrade').value"
+                         ng-disabled="dataFiled.get('customergrade').readonly =='readonly'|| dataFiled.get('customergrade').readonly">
+                </li>
+                <li ng-show="dataFiled.get('customerId').isShow">
+                  <label>发货人ID</label>
+                  <input type="text" ng-model="dataFiled.get('customerId').value">
+                </li>
+                <li>
+                  <label>发货单位</label>
+                  <input type="text" ng-model="dataFiled.get('consignorCompay').value">
+                </li>
+                <li>
+                  <label>账户名称</label>
+                  <input type="text" ng-model="dataFiled.get('accountname').value">
+                </li>
+                <li>
+                  <label>账号</label>
+                  <input type="text" ng-model="dataFiled.get('account').value">
+                </li>
+                <li>
+                  <label>账户类型</label>
+                  <select id="org" ng-model="dataFiled.get('accounttype').value" name="{{dataFiled.get('accounttype').name}}">
+                    <option selected>请选择{{dataFiled.get('accounttype').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('accounttype').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li>
+                  <label>支付银行</label>
+                  <select id="org" ng-model="dataFiled.get('paybanname').value" name="{{dataFiled.get('paybanname').name}}">
+                    <option selected>请选择{{dataFiled.get('paybanname').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('paybanname').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li>
+                  <label>开户省</label>
+                  <div class="city_picker">
+                    <ionic-city-picker options="dataFiled.get('banprovince').CityPickData" class="picker_content"></ionic-city-picker>
+                  </div>
+                </li>
+                <li class="detail_info_item">
+                  <label>开户市/县</label>
+                  <input type="text" ng-model="dataFiled.get('bancity').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>开户行全称</label>
+                  <input type="text" ng-model="dataFiled.get('banfullname').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>支行名称</label>
+                  <input type="text" ng-model="dataFiled.get('bankbranch').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>代收金额</label>
+                  <input type="text" ng-model="dataFiled.get('collectionmoney').value"
+                         ng-blur="dataFiled.get('collectionmoney').event(dataFiled.get('collectionmoney').value);">
+                </li>
+                <li class="detail_info_item">
+                  <label>代收手续费</label>
+                  <input type="text" ng-model="dataFiled.get('collectionpoundage').value"
+                      ng-disabled="dataFiled.get('collectionpoundage').readonly =='readonly'|| dataFiled.get('collectionpoundage').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>固定电话</label>
+                  <input type="text" ng-model="dataFiled.get('consignorPhone').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>手机</label>
+                  <input type="text" ng-model="dataFiled.get('consignorMobilehpone').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>优惠券</label>
+                  <input type="text" ng-model="dataFiled.get('costcoupon').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>地址-省市</label>
+                  <div class="city_picker">
+                    <ionic-city-picker options="dataFiled.get('consignorAddressprovince').CityPickData" class="picker_content">              </ionic-city-picker>
+                  </div>
+                </li>
+                <li class="detail_info_item">
+                  <label>地址-街道</label>
+                  <input type="text" ng-model="dataFiled.get('consignorAddressfull').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>经度</label>
+                  <input type="text" ng-model="dataFiled.get('consignorX').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>纬度</label>
+                  <input type="text" ng-model="dataFiled.get('consignorY').value">
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- 收货人 -->
+          <div class="detail_info" ng-if="selectDetailTabIndex === 3">
+            <div class="detail_info_list">
+              <ul>
+                <li>
+                  <label>收货人</label>
+                  <input type="text" placeholder="检索收货人" ng-model="search"
+                  ionic-autocomplete="{items:dataFiled.get('consigneeName').items,onSelect:dataFiled.get('consigneeName').onSelect}"/>
+                </li>
+                <li class="detail_info_item">
+                  <label>收货单位</label>
+                  <input type="text" ng-model="dataFiled.get('consigneeCompany').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>固定电话</label>
+                  <input type="text" ng-model="dataFiled.get('consigneePhone').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>手机</label>
+                  <input type="text" ng-model="dataFiled.get('consigneeMobilephone').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>地址-省市</label>
+                  <div class="city_picker">
+                    <ionic-city-picker options="dataFiled.get('consigneeAddressprovince').CityPickData" class="picker_content">              </ionic-city-picker>
+                  </div>
+                </li>
+                <li class="detail_info_item">
+                  <label>地址-街道</label>
+                  <input type="text" ng-model="dataFiled.get('consigneeAddressfull').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>经度</label>
+                  <input type="text" ng-model="dataFiled.get('consigneeX').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>纬度</label>
+                  <input type="text" ng-model="dataFiled.get('consigneeY').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>是否超区送货</label>
+                  <select id="org" ng-model="dataFiled.get('isOutsideDelivery').value" name="{{dataFiled.get('isOutsideDelivery').name}}">
+                    <option selected>请选择{{dataFiled.get('isOutsideDelivery').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('isOutsideDelivery').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>是否特殊送货</label>
+                  <select id="org" ng-model="dataFiled.get('isSpecial').value" name="{{dataFiled.get('isSpecial').name}}">
+                    <option selected>请选择{{dataFiled.get('isSpecial').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('isSpecial').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- 货物 -->
+          <div class="detail_info" ng-if="selectDetailTabIndex === 4">
+            <div class="detail_info_list">
+              <ul>
+                <li class="detail_info_item">
+                  <label>是否反转货</label>
+                  <select id="org" ng-model="dataFiled.get('isreverse').value" name="{{dataFiled.get('isreverse').name}}">
+                    <option selected>请选择{{dataFiled.get('isreverse').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('isreverse').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>反转货</label>
+                  <select id="org" ng-model="dataFiled.get('reverseandturn').value" name="{{dataFiled.get('reverseandturn').name}}">
+                    <option selected>请选择{{dataFiled.get('reverseandturn').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('reverseandturn').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>是否签单返回</label>
+                  <select id="org" ng-model="dataFiled.get('goodsSignreturn').value" name="{{dataFiled.get('goodsSignreturn').name}}"
+                                   ng-change="getGoodsSignreturn(dataFiled.get('goodsSignreturn').value);">
+                    <option selected>请选择{{dataFiled.get('goodsSignreturn').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('goodsSignreturn').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>货物编号</label>
+                  <input type="text" ng-model="dataFiled.get('goodsNo').value"
+                                     ng-disabled="dataFiled.get('goodsNo').readonly =='readonly'|| dataFiled.get('goodsNo').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>货物名称</label>
+                  <input type="text" ng-model="dataFiled.get('goodsName').value"
+                                     ng-blur="dataFiled.get('goodsName').event(dataFiled.get('goodsName').value);">
+                </li>
+                <li>
+                  <label>货物件数</label>
+                  <input type="text" ng-model="dataFiled.get('goodsMun').value"
+                                     ng-blur="dataFiled.get('goodsMun').event(dataFiled.get('goodsMun').value);">
+                </li>
+                <li class="detail_info_item">
+                  <label>货物状态</label>
+                  <select id="org" ng-model="dataFiled.get('goodsState').value" name="{{dataFiled.get('goodsState').name}}">
+                    <option selected>请选择{{dataFiled.get('goodsState').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('goodsState').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>货物大类</label>
+                  <select id="org" ng-model="dataFiled.get('goodsBigtype').value" name="{{dataFiled.get('goodsBigtype').name}}">
+                    <option selected>请选择{{dataFiled.get('goodsBigtype').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('goodsBigtype').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>计费类型</label>
+                  <select id="org" ng-model="dataFiled.get('goodsAccounttype').value" name="{{dataFiled.get('goodsAccounttype').name}}"
+                      ng-disabled="dataFiled.get('goodsAccounttype').readonly =='readonly'|| dataFiled.get('goodsAccounttype').readonly">
+                    <option selected>请选择{{dataFiled.get('goodsAccounttype').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('goodsAccounttype').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>计费重量(㎏)</label>
+                  <input type="text" ng-model="dataFiled.get('goodsAccountweight').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>计费体积(m³)</label>
+                  <input type="text" ng-model="dataFiled.get('goodsAccountbulk').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>包装形式</label>
+                  <input type="text" ng-model="dataFiled.get('goodsPack').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>备注</label>
+                  <input type="text" ng-model="dataFiled.get('goodsRemake').value">
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- 费用 -->
+          <div class="detail_info" ng-if="selectDetailTabIndex === 5">
+            <div class="detail_info_list">
+              <ul>
+                <li class="detail_info_item">
+                  <label>付款方式</label>
+                  <select id="org" ng-model="dataFiled.get('costModeofpay').value" name="{{dataFiled.get('costModeofpay').name}}">
+                    <option selected>请选择{{dataFiled.get('costModeofpay').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('costModeofpay').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>免费类型</label>
+                  <select id="org" ng-model="dataFiled.get('costFreetype').value" name="{{dataFiled.get('costFreetype').name}}"
+                  ng-disabled="dataFiled.get('costFreetype').readonly =='readonly'|| dataFiled.get('costFreetype').readonly">
+                    <option selected>请选择{{dataFiled.get('costFreetype').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('costFreetype').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>基本价格</label>
+                  <input type="text" ng-model="dataFiled.get('costBaseprice').value"
+                  ng-disabled="dataFiled.get('costBaseprice').readonly =='readonly'|| dataFiled.get('costBaseprice').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>计算运费</label>
+                  <input type="text" ng-model="dataFiled.get('costCountfreigth').value"
+                  ng-disabled="dataFiled.get('costCountfreigth').readonly =='readonly'|| dataFiled.get('costCountfreigth').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>基本运费</label>
+                  <input type="text" ng-model="dataFiled.get('costBasefreight').value"
+                  ng-blur="dataFiled.get('costBasefreight').event(dataFiled.get('costBasefreight').value);">
+                </li>
+                <li class="detail_info_item">
+                  <label>运费折扣</label>
+                  <input type="text" ng-model="dataFiled.get('staffFieightdiscount').value"
+                  ng-disabled="dataFiled.get('staffFieightdiscount').readonly =='readonly'|| dataFiled.get('staffFieightdiscount').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>保价方式</label>
+                  <select id="org" ng-model="dataFiled.get('costSuredytpe').value" name="{{dataFiled.get('costSuredytpe').name}}">
+                    <option selected>请选择{{dataFiled.get('costSuredytpe').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('costSuredytpe').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>保价金额</label>
+                  <input type="text" ng-model="dataFiled.get('costGoodsinsured').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>保率(‰)</label>
+                  <input type="text" ng-model="dataFiled.get('costGoodsrate').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>保价费用</label>
+                  <input type="text" ng-model="dataFiled.get('costInsuredcost').value"
+                  ng-disabled="dataFiled.get('costInsuredcost').readonly =='readonly'|| dataFiled.get('costInsuredcost').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>工本费</label>
+                  <input type="text" ng-model="dataFiled.get('gbf').value"
+                  ng-disabled="dataFiled.get('gbf').readonly =='readonly'|| dataFiled.get('gbf').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>签单费</label>
+                  <input type="text" ng-model="dataFiled.get('qdf').value"
+                  ng-disabled="dataFiled.get('qdf').readonly =='readonly'|| dataFiled.get('qdf').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>条码费</label>
+                  <input type="text" ng-model="dataFiled.get('tmf').value"
+                  ng-disabled="dataFiled.get('tmf').readonly =='readonly'|| dataFiled.get('tmf').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>优惠金额</label>
+                  <input type="text" ng-model="dataFiled.get('costDisamount').value"
+                  ng-disabled="dataFiled.get('costDisamount').readonly =='readonly'|| dataFiled.get('costDisamount').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>预存余额</label>
+                  <input type="text" ng-model="dataFiled.get('costSavebalance').value"
+                  ng-disabled="dataFiled.get('costSavebalance').readonly =='readonly'|| dataFiled.get('costSavebalance').readonly">
+                </li>
+                 <li class="detail_info_item">
+                  <label>高保编号</label>
+                  <input type="text" ng-model="dataFiled.get('costHighseapprovecode').value"
+                                     ng-blur="dataFiled.get('costHighseapprovecode').event(dataFiled.get('costHighseapprovecode').value);">
+                </li>
+                <li class="detail_info_item">
+                  <label>包装费</label>
+                  <input type="text" ng-model="dataFiled.get('packingFee').value">
+                </li>
+                <li class="detail_info_item" ng-show="dataFiled.get('costPickUpCharge').isShow">
+                  <label>提货费</label>
+                  <input type="text" ng-model="dataFiled.get('costPickUpCharge').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>区外送货费</label>
+                  <input type="text" ng-model="dataFiled.get('qwshf').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>原区外送货费</label>
+                  <input type="text" ng-model="dataFiled.get('originalOutsideDeliveryFee').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>特殊送货费</label>
+                  <input type="text" ng-model="dataFiled.get('costSpecialFee').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>原特殊送货费</label>
+                  <input type="text" ng-model="dataFiled.get('originalSpecialFee').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>是否进仓</label>
+                  <select id="org" ng-model="dataFiled.get('costIsstorage').value" name="{{dataFiled.get('costIsstorage').name}}">
+                    <option selected>请选择{{dataFiled.get('costIsstorage').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('costIsstorage').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>进仓费</label>
+                  <input type="text" ng-model="dataFiled.get('costStoragecost').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>进仓编号</label>
+                  <input type="text" ng-model="dataFiled.get('costStoragecode').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>是否上楼</label>
+                  <select id="org" ng-model="dataFiled.get('isUpstairs').value" name="{{dataFiled.get('isUpstairs').name}}">
+                    <option selected>请选择{{dataFiled.get('isUpstairs').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('isUpstairs').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>进仓费</label>
+                  <input type="text" ng-model="dataFiled.get('costUpstairsFee').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>是否卸货</label>
+                  <select id="org" ng-model="dataFiled.get('isUnloadingCharge').value" name="{{dataFiled.get('isUnloadingCharge').name}}">
+                    <option selected>请选择{{dataFiled.get('isUnloadingCharge').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('isUnloadingCharge').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>卸货费</label>
+                  <input type="text" ng-model="dataFiled.get('costUnloadingCharge').value"
+                  ng-disabled="dataFiled.get('costUnloadingCharge').readonly =='readonly'|| dataFiled.get('costUnloadingCharge').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>是否专车专送</label>
+                  <select id="org" ng-model="dataFiled.get('isPecialDelivery').value" name="{{dataFiled.get('isPecialDelivery').name}}">
+                    <option selected>请选择{{dataFiled.get('isPecialDelivery').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('isPecialDelivery').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>专车专送费</label>
+                  <input type="text" ng-model="dataFiled.get('specialDeliveryFee').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>是否佳吉打包</label>
+                  <select id="org" ng-model="dataFiled.get('isPacking').value" name="{{dataFiled.get('isPacking').name}}">
+                    <option selected>请选择{{dataFiled.get('isPacking').title}}</option>
+                    <option ng-repeat="item in dataFiled.get('isPacking').items" value="{{item.value}}">{{item.name}}</option>
+                  </select>
+                </li>
+                <li class="detail_info_item">
+                  <label>优惠折扣</label>
+                  <input type="text" ng-model="dataFiled.get('costSpecialDiscount').value">
+                </li>
+                <li class="detail_info_item">
+                    <button ng-if="model == 'add'" type="button" class="button-b" ng-click="calculateCost()">费用计算</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- 结算 -->
+          <div class="detail_info" ng-if="selectDetailTabIndex === 6">
+            <div class="detail_info_list">
+              <ul>
+                <li class="detail_info_item">
+                  <label>现付</label>
+                  <input type="text" ng-model="dataFiled.get('costPayas').value"
+                  ng-disabled="dataFiled.get('costPayas').readonly =='readonly'|| dataFiled.get('costPayas').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>到付</label>
+                  <input type="text" ng-model="dataFiled.get('costTopay').value"
+                  ng-disabled="dataFiled.get('costTopay').readonly =='readonly'|| dataFiled.get('costTopay').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>应收</label>
+                  <input type="text" ng-model="dataFiled.get('costReceivable').value"
+                  ng-disabled="dataFiled.get('costReceivable').readonly =='readonly'|| dataFiled.get('costReceivable').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>抵预存款</label>
+                  <input type="text" ng-model="dataFiled.get('costDydeposit').value"
+                  ng-disabled="dataFiled.get('costDydeposit').readonly =='readonly'|| dataFiled.get('costDydeposit').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>总费用</label>
+                  <input type="text" ng-model="dataFiled.get('costTotalfrght').value"
+                  ng-disabled="dataFiled.get('costTotalfrght').readonly =='readonly'|| dataFiled.get('costTotalfrght').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>结算总费用</label>
+                  <input type="text" ng-model="dataFiled.get('costBalancetotal').value"
+                  ng-disabled="dataFiled.get('costBalancetotal').readonly =='readonly'|| dataFiled.get('costBalancetotal').readonly">
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- 人员 -->
+          <div class="detail_info" ng-if="selectDetailTabIndex === 7">
+            <div class="detail_info_list">
+              <ul>
+                <li class="detail_info_item">
+                  <label>仓管员</label>
+                  <input type="text" ng-model="dataFiled.get('staffWarahouseman').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>验货员</label>
+                  <input type="text" ng-model="dataFiled.get('staffSurveyou').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>收款员</label>
+                  <input type="text" ng-model="dataFiled.get('staffReceiver').value">
+                </li>
+                <li class="detail_info_item">
+                  <label>取件员</label>
+                  <input type="text" ng-model="dataFiled.get('pickupUserId').value">
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- 承运人 -->
+          <div class="detail_info" ng-if="selectDetailTabIndex === 8">
+            <div class="detail_info_list">
+              <ul>
+                <li class="detail_info_item">
+                  <label>到货电话</label>
+                  <input type="text" ng-model="dataFiled.get('staffCarrierhpnoe').value"
+                  ng-disabled="dataFiled.get('staffCarrierhpnoe').readonly =='readonly'|| dataFiled.get('staffCarrierhpnoe').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>到货公司地址</label>
+                  <input type="text" ng-model="dataFiled.get('staffCarriercom').value"
+                  ng-disabled="dataFiled.get('staffCarriercom').readonly =='readonly'|| dataFiled.get('staffCarriercom').readonly">
+                </li>
+                <li class="detail_info_item">
+                  <label>开单时间</label>
+                  <input type="text" ng-model="dataFiled.get('waybillConsigntimeStr').value"
+                ng-disabled="dataFiled.get('waybillConsigntimeStr').readonly =='readonly'|| dataFiled.get('waybillConsigntimeStr').readonly">
+                </li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        <!-- </ion-scroll> -->
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

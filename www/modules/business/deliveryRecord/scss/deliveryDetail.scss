@@ -1,0 +1,62 @@
+.jiaji_deliveryDetail{
+  .delivery_info{
+    margin: 0 15px 20px 15px;
+  }
+  .delivery_info:first-child{
+    margin-top: 20px;
+  }
+  .item_title{
+    padding: 5px 15px;
+    background-color: #d7d7d7;
+    color: #fff;
+  }
+  .item_title p{
+
+  }
+  .item_info{
+
+  }
+  .item_info ul li{
+    background-color: #fff;
+    padding: 0 15px ;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .person_type{
+    width: 80px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .person_type p{
+
+  }
+  .person_info{
+    flex: 1;
+    padding: 10px 0;
+  }
+  .person_info p{
+
+  }
+  .goods_info{
+    padding: 10px 15px;
+    background-color: #fff;
+
+  }
+  .goods_info ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;flex-flow: row wrap;
+
+  }
+  .goods_info ul li{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 0;
+
+  }
+
+
+}

@@ -1,0 +1,111 @@
+.jiaji_productDescription{
+  .title_info{
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 0 15px;
+
+  }
+  .title_info p{
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+  }
+  .product_list{
+    position: fixed;
+    top: 45px;
+    left: 0;
+    right: 0;
+
+  }
+  .product_list ul li{
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid #d5d5d5;
+    background-color: #fff;
+    padding: 0 15px;
+
+  }
+  .product_list ul li:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    background-image: url(../img/personCenter/rightArrow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    right: 15px;
+  }
+  .product_list ul li:first-child{
+    border-top: 1px solid #d5d5d5;
+  }
+  .product_list ul li .productIcon{
+    width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .product_list ul li p{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+  }
+
+  .express{
+     background-image: url(../img/businessHelper/express.png);
+     width: 25px;
+     height: 25px;
+   }
+  .business{
+    background-image: url(../img/businessHelper/business.png);
+    width: 25px;
+    height: 25px;
+  }
+  .offer{
+    background-image: url(../img/businessHelper/offer.png);
+    width: 25px;
+    height: 25px;
+  }
+  .cityTransport{
+    background-image: url(../img/businessHelper/cityTransport.png);
+    width: 25px;
+    height: 25px;
+  }
+  .airTransport{
+    background-image: url(../img/businessHelper/airTransport.png);
+    width: 25px;
+    height: 25px;
+  }
+  .carTransport{
+    background-image: url(../img/businessHelper/carTransport.png);
+    width: 25px;
+    height: 25px;
+  }
+  .car{
+    background-image: url(../img/businessHelper/car.png);
+    width: 25px;
+    height: 25px;
+  }
+  .accurate{
+    background-image: url(../img/businessHelper/accurate.png);
+    width: 25px;
+    height: 25px;
+  }
+}

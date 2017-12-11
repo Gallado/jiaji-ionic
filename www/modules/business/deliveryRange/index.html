@@ -1,0 +1,41 @@
+<ion-view class="jiaji_deliveryRange">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>派送范围</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <div class="search_area">
+      <label>原寄地</label>
+      <input type="text" placeholder="请选择地址" id='city-picker' ng-model="selectAred">
+    </div>
+
+    <div class="search_btn" ng-click="goSearch(selectAred)">
+      <p class="btn_s">查询</p>
+    </div>
+
+    <div class="search_result" ng-if="showSearchResult">
+      <ul>
+        <li>
+          <div class="item_title">收件区域</div>
+          <div class="item_content">全境收件</div>
+        </li>
+        <li>
+          <div class="item_title">送件区域</div>
+          <div class="item_content">全境派送</div>
+        </li>
+        <li>
+          <div class="item_title">特殊地区</div>
+          <div class="item_content">无</div>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+  </ion-content>
+</ion-view>

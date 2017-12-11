@@ -1,0 +1,24 @@
+<ion-view>
+    <ion-nav-bar class="bar-huatek">
+        <ion-header-bar class="bar-huatek">
+            <ion-nav-back-button>
+                <i class="icon_back goBack"></i>
+            </ion-nav-back-button>
+            <ion-nav-title>高保上报</ion-nav-title>
+        </ion-header-bar>
+    </ion-nav-bar>
+    <ion-tabs lass="tabs-icon-only tabs-icon-top">
+        <ion-tab title="未上报" href="#/hifReportList/tab1" on-select="onTabSelected('tab1')" on-deselect="onTabDeselected('tab1')">
+            <ion-nav-view name="tab1"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="已上报" href="#/hifReportList/tab2" on-select="onTabSelected('tab2')" on-deselect="onTabDeselected('tab2')">
+            <ion-nav-view name="tab2"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="审批通过" href="#/hifReportList/tab3" on-select="onTabSelected('tab3')" on-deselect="onTabDeselected('tab3')">
+            <ion-nav-view name="tab3"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="审批驳回" href="#/hifReportList/tab4" on-select="onTabSelected('tab4')" on-deselect="onTabDeselected('tab4')">
+            <ion-nav-view name="tab4"></ion-nav-view>
+        </ion-tab>
+    </ion-tabs>
+</ion-view>

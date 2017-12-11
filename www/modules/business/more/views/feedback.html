@@ -1,0 +1,36 @@
+
+<ion-view class="jiaji_feedback">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>意见反馈</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+    <div class="opinion_info">
+      <div class="opinion_title" ng-click="openOpinionList()">
+        <p>{{activeOpinionType}}</p>
+        <i class="icon" ng-class="{'up':showOpinionList,'down':!showOpinionList}"></i>
+      </div>
+      <div class="opinion_list" ng-if="showOpinionList">
+        <ul>
+          <li ng-click="selectOpinionList(data)" ng-repeat="data in OpinionListData">{{data.name}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feedback_content">
+      <div class="item_title">反馈内容</div>
+      <textarea rows="5" placeholder="请输入反馈内容" ng-model="opinion.text"></textarea>
+    </div>
+    <div class="feedback_content">
+      <div class="item_title">手机号码</div>
+      <input placeholder="您的手机号码或者邮箱" ng-model="opinion.phone">
+    </div>
+
+    <div class="submit_btn">
+      <div class="btn_s" ng-click="submit(activeOpinionType,opinion)">提交</div>
+    </div>
+  </ion-content>
+</ion-view>

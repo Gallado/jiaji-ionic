@@ -1,0 +1,149 @@
+.jiaji_orderQuery{
+
+  .order_title{
+    height: 40px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+  }
+   .order_title p{
+
+  }
+   .result_list{
+  }
+   .result_list ul{
+
+  }
+   .result_list ul li{
+     border-top: 1px solid #d5d5d5;
+     border-bottom: 1px solid #d5d5d5;
+     margin-bottom: 10px;
+     background-color: #fff;
+  }
+
+  .order_title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    padding: 0 15px;
+  }
+  .order_title .orderIcon{
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  .order_title .order_no{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .order_title .order_no p{
+    flex: 1;
+
+  }
+  .order_title .order_no .order_type{
+
+  }
+  .order_title .order_no .order_type p{
+    padding: 0 10px;
+    border: 1px solid #D61E14;
+    color: #D61E14;
+    border-radius: 12px;
+    font-size: 10px;
+  }
+  .order_info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 15px;
+  }
+  .order_info .order_address{
+    flex: 0.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .order_info .order_address h3{
+    font-weight: normal;
+    padding: 5px 0;
+    font-size: 16px;
+
+  }
+  .order_info .order_address p{
+    padding: 5px 0;
+  }
+  .order_info .order_status{
+    flex: 0.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .wait{
+    background-color: #D61E14;
+    border-radius: 15px;
+    padding: 3px 10px;
+    color: #fff;
+  }
+  .complete{
+    background-color: #999;
+    border-radius: 15px;
+    padding: 3px 10px;
+    color: #fff;
+  }
+  .order_time{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    padding: 0 15px;
+    border-top: 1px dashed #d5d5d5;
+  }
+  .order_time label{
+    width: 80px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .order_time p{
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  .waitLeft{
+    background-image:url(../img/orderQuery/waitLeft.png);
+    width: 30px;
+    height: 30px;
+  }
+  .waitRight{
+    background-image:url(../img/orderQuery/waitRight.png);
+    width: 30px;
+    height: 30px;
+  }
+  .completeLeft{
+    background-image:url(../img/orderQuery/completeLeft.png);
+    width: 30px;
+    height: 30px;
+  }
+  .completeRight{
+    background-image:url(../img/orderQuery/completeRight.png);
+    width: 30px;
+    height: 30px;
+  }
+  .send{
+    background-image:url(../img/orderQuery/send.png);
+    width: 20px;
+    height: 20px;
+  }
+  .get{
+    background-image:url(../img/orderQuery/get.png);
+    width: 20px;
+    height: 20px;
+  }
+}

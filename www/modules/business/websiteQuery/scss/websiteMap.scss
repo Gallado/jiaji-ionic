@@ -1,0 +1,104 @@
+.jiaji_websiteMap{
+  .websiteMap_content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .website_map{
+    display: flex;
+    flex: 1;
+
+  }
+  .map_content{
+    width: 100%;
+    height: 100%;
+  }
+  .website_content{
+    background-color: #fff;
+  }
+  .website_info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #d5d5d5;
+  }
+  .website_info .website_logo{
+    width: 90px;
+    height: 90px;
+  }
+  .website_info .main_info{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px;
+    font-size: 13px;
+  }
+  .website_info .main_info h3{
+    padding: 5px 0;
+    font-size: 14px;
+  }
+  .website_info .main_info p{
+    padding: 0 0 5px 0;
+  }
+  .website_info .main_info .another_info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 0 0 0;
+  }
+  .website_info .main_info .another_info .info_item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 0.5;
+  }
+  .website_info .main_info .another_info .info_item p{
+    padding: 0 5px;
+  }
+  .website_operate{
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
+  }
+  .website_operate .operate_item{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    border-right: 1px solid #d5d5d5;
+  }
+  .website_operate .operate_item:last-child{
+    border-bottom: none;
+  }
+  .website_operate .operate_item p{
+    padding: 0 5px;
+  }
+  .telephone{
+    background-image:url(../img/websiteQuery/telephone.png);
+    width: 20px;
+    height: 20px;
+  }
+  .goHere{
+    background-image:url(../img/websiteQuery/here.png);
+    width: 20px;
+    height: 20px;
+  }
+  .tag{
+    background-image:url(../img/websiteQuery/tag.png);
+    width: 18px;
+    height: 18px;
+  }
+  .position{
+    background-image:url(../img/websiteQuery/position.png);
+    width: 18px;
+    height: 18px;
+  }
+}

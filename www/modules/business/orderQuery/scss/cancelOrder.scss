@@ -1,0 +1,36 @@
+.jiaji_cancelOrder{
+  .cancel_title{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 0 15px;
+    border-bottom: 1px solid #d5d5d5;
+  }
+  .cancel_title p{
+
+  }
+  .reason_list{
+    background-color: #fff;
+    padding: 0 15px;
+  }
+  .reason_list ul li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+  }
+  .reason_list ul li .chooseIcon{
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .reason_list ul li p{
+
+  }
+  .cancel_submit{
+    padding: 30px;
+  }
+}

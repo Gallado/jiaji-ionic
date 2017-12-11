@@ -1,0 +1,139 @@
+<ion-view class="jiaji_orderDetail">
+  <ion-nav-bar class="jiaji-header">
+    <ion-header-bar>
+      <ion-nav-back-button>
+        <i class="icon goBack"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>运单详情</ion-nav-title>
+    </ion-header-bar>
+  </ion-nav-bar>
+  <ion-content has-bouncing="true" padding="false">
+
+    <div class="order_detail">
+      <div class="order_title">
+        <div class="orderIcon">
+          <i class="icon send"></i>
+        </div>
+        <div class="order_no">
+          <p ng-bind="orderDetail.orderInfo.orderNo"></p>
+          <div class="order_type">
+            <p>快递</p>
+          </div>
+        </div>
+      </div>
+      <div class="order_info">
+        <div class="order_address">
+          <h3 ng-bind="orderDetail.orderInfo.sendCity"></h3>
+          <p ng-bind="orderDetail.orderInfo.sendPerson"></p>
+        </div>
+        <div class="order_status">
+          <i class="icon waitLeft"></i>
+          <p>带揽件</p>
+          <i class="icon waitRight"></i>
+        </div>
+        <div class="order_address">
+          <h3 ng-bind="orderDetail.orderInfo.endCity"></h3>
+          <p ng-bind="orderDetail.orderInfo.endPerson"></p>
+        </div>
+      </div>
+      <div class="order_time">
+        <div class="send_time">
+          <label>下单时间：</label>
+          <p ng-bind="orderDetail.orderInfo.orderTime"></p>
+        </div>
+        <p ng-bind="orderDetail.orderInfo.reason"></p>
+        <div class="reservation_pick">
+          <div class="timeIcon">
+            <i class="icon time"></i>
+          </div>
+          <div class="reservation_time">
+            <label>预约取件时间：</label>
+            <p ng-bind="orderDetail.orderInfo.reservationTime"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="order_address_list">
+      <div class="address_title" ng-click="showMoreAddress()">
+        <p>地址信息</p>
+        <div class="moreIcon">
+          <i class="icon showMore"></i>
+        </div>
+      </div>
+      <div class="address_info" ng-if="isShowMoreAddress">
+        <ul>
+          <li>
+            <div class="person_info">
+              <div class="person_item">
+                <label>发件人：</label>
+                <p ng-bind="orderDetail.addressInfo.sendPerson"></p>
+              </div>
+
+              <p ng-bind="orderDetail.addressInfo.sendPersonTel"></p>
+            </div>
+            <div class="address">
+              <label>发货地址：</label>
+              <p ng-bind="orderDetail.addressInfo.sendAddress"></p>
+            </div>
+          </li>
+          <li>
+            <div class="person_info">
+              <div class="person_item">
+                <label>收件人：</label>
+                <p ng-bind="orderDetail.addressInfo.getPerson"></p>
+              </div>
+              <p ng-bind="orderDetail.addressInfo.getPersonTel"></p>
+            </div>
+            <div class="address">
+              <label>收货地址：</label>
+              <p ng-bind="orderDetail.addressInfo.getAddress"></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="order_address_list">
+      <div class="address_title" ng-click="showMoreExpressInformation()">
+        <p>快运信息</p>
+        <div class="moreIcon">
+          <i class="icon showMore"></i>
+        </div>
+      </div>
+      <div class="express_information" ng-if="isShowMoreExpressInformation">
+        <ul>
+          <li>
+            <label>货物信息</label>
+            <p ng-bind="orderDetail.expressInfo.goodsInfo"></p>
+          </li>
+          <li>
+            <label>货物价值声明</label>
+            <p ng-bind="orderDetail.expressInfo.priceInfo"></p>
+          </li>
+          <li>
+            <label>代收货款</label>
+            <p ng-bind="orderDetail.expressInfo.collectMoney"></p>
+          </li>
+          <li>
+            <label>签收单返还</label>
+            <p ng-bind="orderDetail.expressInfo.isReturn"></p>
+          </li>
+          <li>
+            <label>订单号</label>
+            <p ng-bind="orderDetail.expressInfo.orderNo"></p>
+          </li>
+          <li>
+            <label>备注</label>
+            <p ng-bind="orderDetail.expressInfo.remark"></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cancel_order" ng-click="cancelOrder()" >
+      <div class="btn_s">取消订单</div>
+    </div>
+
+
+
+  </ion-content>
+</ion-view>
